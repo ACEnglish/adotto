@@ -1,0 +1,39 @@
+Individual	FamilyId	TrioState	Sex	Population code	Population name	Superpopulation code	Superpopulation name	AltIDs
+NA12878	RM8398	child	female	CEU	Utah Residents (CEPH) with Northern and Western European Ancestry	EUR	European Ancestry	NA12878,ERR3988823,GM19240
+NA24385	RM8392	child	male	ASH	Ashkenazi	EUR	European Ancestry	HG002,GM24385,huAA53E0
+NA12891	RM8398	father	male	CEU	Utah Residents (CEPH) with Northern and Western European Ancestry	EUR	European Ancestry	
+NA12892	RM8398	mother	female	CEU	Utah Residents (CEPH) with Northern and Western European Ancestry	EUR	European Ancestry	
+HG00096	HG00096	unrel	male	GBR	British	EUR	European Ancestry	
+HG00171	HG00171	unrel	female	FIN	Finnish	EUR	European Ancestry	
+HG00512	SH032	father	male	CHS	Southern Han Chinese	EAS	East Asian Ancestry	
+HG00513	SH032	mother	female	CHS	Southern Han Chinese	EAS	East Asian Ancestry	
+HG00514	SH032	child	female	CHS	Southern Han Chinese	EAS	East Asian Ancestry	
+HG00731	PR05	father	male	PUR	Puerto Rican	AMR	American Ancestry	
+HG00732	PR05	mother	female	PUR	Puerto Rican	AMR	American Ancestry	
+HG00733	PR05	child	female	PUR	Puerto Rican	AMR	American Ancestry	
+HG00864	HG00864	unrel	female	CDX	Dai Chinese	EAS	East Asian Ancestry	
+HG01114	CLM03	child	female	CLM	Colombian	AMR	American Ancestry	
+HG01505	IBS002	child	male	IBS	Iberian	EUR	European Ancestry	
+HG01596	VN002	unrel	male	KHV	Kinh Vietnamese	EAS	East Asian Ancestry	
+HG02011	BB13	child	male	ACB	African Caribbean	AFR	African Ancestry	
+HG02492	PK06	child	male	PJL	Punjabi	SAS	South Asian Ancestry	
+HG02587	GB24	child	female	GWD	Gambian Mandinka	AFR	African Ancestry	
+HG02818	GB66	child	female	GWD	Gambian Mandinka	AFR	African Ancestry	
+HG03009	HG03009	unrel	male	BEB	Bengali	SAS	South Asian Ancestry	
+HG03065	SL05	child	male	MSL	Mende	AFR	African Ancestry	
+HG03125	NG34	child	female	ESN	Esan	AFR	African Ancestry	
+HG03371	NG98	child	male	ESN	Esan	AFR	African Ancestry	
+HG03486	SL61	child	female	MSL	Mende	AFR	African Ancestry	
+HG03683	ST012	child	female	STU	Tamil	SAS	South Asian Ancestry	
+HG03732	IT003	child	male	ITU	Telugu	SAS	South Asian Ancestry	
+NA12329	1328	child	female	CEU	CEPH	EUR	European Ancestry	
+NA18534	NA18534	unrel	male	CHB	Han Chinese	EAS	East Asian Ancestry	
+NA18939	NA18939	unrel	female	JPT	Japanese	EAS	East Asian Ancestry	
+NA19238	Y117	mother	female	YRI	Yoruba	AFR	African Ancestry	
+NA19239	Y117	father	male	YRI	Yoruba	AFR	African Ancestry	
+NA19240	Y117	child	female	YRI	Yoruba	AFR	African Ancestry	
+NA19650	m001	child	male	MXL	Mexican Ancestry	AMR	American Ancestry	
+NA19983	2436	child	female	ASW	African Ancestry SW	AFR	African Ancestry	
+NA20509	NA20509	unrel	male	TSI	Toscani	EUR	European Ancestry	
+NA20847	NA20847	unrel	female	GIH	Gujarati	SAS	South Asian Ancestry	
+PGP1	PGP	unrel	male	CEU	Utah Residents (CEPH) with Northern and Western European Ancestry	EUR	European Ancestry	
