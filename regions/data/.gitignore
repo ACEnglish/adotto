@@ -21,3 +21,9 @@ ucsd2/GIAB_adVNTR_short_VNTR_regions.bed
 ucsd2/merged.bed
 ucsd2/merged.bed.gz
 ucsd2/merged.bed.gz.tbi
+HumanGRCh38.mapping.gap.bed.gz
+gap_slop.bed
+grch38.tandemrepeatfinder.txt
+tr_regions.bed.gz
+tr_regions.bed.gz.tbi
+tr_regions.fasta
