@@ -40,14 +40,14 @@ This script creates `data/merged.bed.gz` as well as a `data/merged.slop25.bed.gz
 
 Generating stats
 ================
-TBD
+All the intermediate stats files generated can be concatenated into a single tab-delimited table with
+```
+python scripts/consolidate_stats.py > data/region_stats.txt
+```
 
-`stats` somewhere
-
-Then I added a 75bp slop
-
-Then I removed the variants >= .. 50kb
-
+TODO: The below
+Removing more regions
+=====================
 Then I removed variants within Nbp of reference gaps.
 
 Then I ran TRF on the reference sequence of the remaining regions
