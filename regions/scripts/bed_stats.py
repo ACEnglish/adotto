@@ -17,7 +17,10 @@ for line in sys.stdin:
     sys.stdout.write(line)
 
 spans = pd.Series(spans, name="span")
-desc = spans.describe().astype(int).to_string()
+desc = spans.describe()
+
+desc["tot_len"] = spans.sum()
+desc = desc.astype(int).to_string()
 sys.stderr.write(desc + '\n')
 with open(f"input_spans{suffix_name}.txt", 'w') as fout:
     fout.write(desc + '\n')

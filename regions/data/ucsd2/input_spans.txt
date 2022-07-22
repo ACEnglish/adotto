@@ -1,8 +1,9 @@
-count    10264
-mean        59
-std         27
-min         20
-25%         38
-50%         52
-75%         73
-max        284
+count       10264
+mean           59
+std            27
+min            20
+25%            38
+50%            52
+75%            73
+max           284
+tot_len    613138

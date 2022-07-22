@@ -45,14 +45,33 @@ All the intermediate stats files generated can be concatenated into a single tab
 python scripts/consolidate_stats.py > data/region_stats.txt
 ```
 
-TODO: The below
-Removing more regions
-=====================
-Then I removed variants within Nbp of reference gaps.
+Reference Gaps
+==============
+Remove regions within 5kbp of reference gaps obtained from the 'Mapping and Sequencing>Gap' track from 
+[UCSC](https://genome.ucsc.edu/cgi-bin/hgTables)
 
-Then I ran TRF on the reference sequence of the remaining regions
+```bash
+bash ../scripts/remove_gaps.sh HumanGRCh38.mapping.gap.bed.gz grch38.genome merged.slop25.bed.gz
+```
+This removes 1769 regions and puts the remaining ones in `data/tr_regions.bed.gz`
 
-Then translate that TRF output back to genomic coordinates and format to a bed/gz/tbi
+TRF on regions
+==============
+We now want to (re)create all the tandem repeat annotations. First, we extract the sequences from the regions
+
+```bash
+samtools faidx -r <(zcat tr_regions.bed.gz | awk '{print $1 ":" $2 "-" $3}')
+~/scratch/insertion_ref/msru/data/reference/grch38/GRCh38_1kg_mainchrs.fa > tr_regions.fasta
+```
+
+Then I ran TRF on the reference sequence of regions:
+```bash
+trf409.linux64 data/tr_regions.fasta 3 7 7 80 5 40 500 -h -ngs > data/grch38.tandemrepeatfinder.txt
+```
+
+!! bookmark
+
+Finally, we want to translate that TRF output back to genomic coordinates and format to a bed/gz/tbi
 
 Then I checked the input source beds against this set of regions to ensure that our new set
 at least somewhat is representative of the input beds. For example, source ABC has a region

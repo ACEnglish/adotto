@@ -53,11 +53,13 @@ rows.append(my_row)
 
 spans = spans_sum_read(os.path.join(in_dir, "input_spans_slop.txt"))
 my_row = pd.DataFrame([spans])
-my_row["source"] = "final"
+my_row["source"] = "pre-gap"
 rows.append(my_row)
 
+spans = spans_sum_read(os.path.join(in_dir, "input_spans_final.txt"))
+my_row = pd.DataFrame([spans])
+my_row["source"] = "final"
+rows.append(my_row)
 data = pd.concat(rows)
 data.to_csv("/dev/stdout", sep='\t', index=False)
-
-
 

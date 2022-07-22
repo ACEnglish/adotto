@@ -1,8 +1,9 @@
-count    171146
-mean         26
-std          12
-min           4
-25%          18
-50%          24
-75%          34
-max         532
+count       171146
+mean            26
+std             12
+min              4
+25%             18
+50%             24
+75%             34
+max            532
+tot_len    4538741
