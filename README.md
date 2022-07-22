@@ -9,7 +9,7 @@ For now, we'll be assuming all analysis is using GRCh38 as the reference
 Structure
 =========
 There are a few main sub-parts to this project. Each is contained in a sub-directory. Raw data that's too large to be
-kept on github will be made available will be documented such that a user can find it and know where to place it within
+kept on github will be made available and  documented such that a user can find it and know where to place it within
 a clone of this repo in order to run sub-parts of the analysis.
 
 * regions - Identification of Tandem-Repeat regions of a reference
@@ -28,3 +28,14 @@ verbose documentation. As the project matures, we'll continually improve code so
 recreated and/or improved upon. 
 
 Please feel free to open Issues in this repository for any questions - software related or otherwise.
+
+Progress
+========
+Rough estimates of the progress for each analysis section.  Last updated  `Fri Jul 22 02:03:49 CDT 2022`
+| Step            |  %  |
+| --------------- | --- |
+| regions         | 70% |
+| variant_calling | 95% |
+| realignment     | 20% | 
+| bench creation  | 5%  |
+| benchmarking    | 0%  |
