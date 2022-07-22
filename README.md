@@ -15,6 +15,7 @@ a clone of this repo in order to run sub-parts of the analysis.
 * regions - Identification of Tandem-Repeat regions of a reference
 * variant_calling - Calling variants from long-read haplotype resolved assemblies
 * realignment - Joint-realignment of tandem-repeat regions of a reference
+* benchmarking - Scripts and results from benchmarking work
 * manuscript - Summary and plotting workflows for the publication
 * metadata - Data descriptor files (e.g. download paths of inputs used or sample ancestry information)
 * slides - GIAB team meeting slides
