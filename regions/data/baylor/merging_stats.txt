@@ -1,0 +1,4 @@
+Removed 116 of 692882 = 692766 (0.02%)
+Small removed: 0
+Big removed: 116
+Coord remove: 0

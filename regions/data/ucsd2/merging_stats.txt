@@ -1,0 +1,4 @@
+Removed 0 of 10259 = 10259 (0.00%)
+Small removed: 0
+Big removed: 0
+Coord remove: 0

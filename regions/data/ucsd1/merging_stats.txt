@@ -1,0 +1,4 @@
+Removed 1646 of 1739897 = 1738251 (0.09%)
+Small removed: 1646
+Big removed: 0
+Coord remove: 0

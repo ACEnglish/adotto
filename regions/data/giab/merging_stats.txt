@@ -1,0 +1,4 @@
+Removed 130507 of 1400092 = 1269585 (9.32%)
+Small removed: 130321
+Big removed: 186
+Coord remove: 0
