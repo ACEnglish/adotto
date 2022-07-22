@@ -17,16 +17,19 @@ The sub directories of `data/` are each named for the contributing source. Insid
 which will create the merged beds with something like
 
 ```bash
-bedtools sort -i input.bed | bedtools merge | merged_bed_filter.py | bgzip > merged.bed.gz
+bedtools sort -i input.bed | bed_stats.py | bedtools merge | merged_bed_filter.py | bgzip > merged.bed.gz
 tabix merged.bed.gz
 ```
 
-Note that `merged_bed_filter.py` is the relative path to `scripts/merged_bed_filter.py`. 
-This file removes:
+Note that `bed_stats.py` and `merged_bed_filter.py` is the relative path to `scripts/merged_bed_filter.py`. 
+
+`bed_stats.py` does a `pandas.Series.describe` on the input set of regions' span lengths and writes a summary to `input_spans.txt`
+
+`merged_bed_filter.py` removes:
 * regions not on chr1-22,X,Y
 * regions that span fewer than 10bp or > 50kbp
 * regions with an end position before than their start. 
-It also creates a `merging_stats.txt` with a simple summary statement.
+It also creates a `merging_stats.json` with a simple summary statement.
 
 Consolidating bed files
 =======================

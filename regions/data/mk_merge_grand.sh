@@ -18,6 +18,7 @@ exit
 fi
 echo "Initial merge"
 zcat */merged.bed.gz \
+    | ../scripts/bed_stats.py \
     | bedtools sort -i \
     | bedtools merge \
     | ../scripts/merged_bed_filter.py \
@@ -26,8 +27,12 @@ tabix merged.bed.gz
 
 echo "Slop merge"
 bedtools slop -i merged.bed.gz -b 25 -g $genome \
+    | ../scripts/bed_stats.py merged \
     | bedtools sort \
     | bedtools merge \
     | ../scripts/merged_bed_filter.py slop \
     | bgzip > merged.slop25.bed.gz
 tabix merged.slop25.bed.gz
+
+# Get final stats real quick
+zcat merged.slop25.bed.gz | ../scripts/bed_stats.py slop > /dev/null
