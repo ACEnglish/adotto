@@ -1,0 +1,12 @@
+{
+    "total": 10259,
+    "removed": 0,
+    "removed_pct": 0.0,
+    "chrom_rm": 0,
+    "small_rm": 0,
+    "big_rm": 0,
+    "coord_rm": 0,
+    "span_total": 612921,
+    "span_rm": 0,
+    "span_kept": 612921
+}

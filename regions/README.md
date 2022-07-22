@@ -22,12 +22,22 @@ tabix merged.bed.gz
 ```
 
 Note that `merged_bed_filter.py` is the relative path to `scripts/merged_bed_filter.py`. 
-This file removes regions that span fewer than 10bp or > 50kbp, or if they have an end position before than their start. It also creates a
-`merging_stats.txt` with a simple summary statement.
+This file removes:
+* regions not on chr1-22,X,Y
+* regions that span fewer than 10bp or > 50kbp
+* regions with an end position before than their start. 
+It also creates a `merging_stats.txt` with a simple summary statement.
 
-Merging beds
-============
-Next, the bed files are merged
+Consolidating bed files
+=======================
+Next, the bed files are merged together to make the grand union using `data/mk_merge_grand.sh ref.genome`. This is almost the same as
+the component parts' `mk_merge.sh`. However, a ref.genome file needs to be provided (just `<chromName><TAB><chromSize>`) 
+This script creates `data/merged.bed.gz` as well as a `data/merged.slop25.bed.gz` The slop bed is a remerge of the
+`merged.bed.gz` after inflating all the regions by 50bp (25bp on each end).
+
+Generating stats
+================
+TBD
 
 `stats` somewhere
 

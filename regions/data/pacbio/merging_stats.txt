@@ -1,4 +1,0 @@
-Removed 7790 of 171145 = 163355 (4.55%)
-Small removed: 7790
-Big removed: 0
-Coord remove: 0
