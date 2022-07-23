@@ -11,7 +11,9 @@ Then  I can do some pysam.FastaFile.fetch to check that the coordinates are righ
 """
 import sys
 import joblib
+import truvari
 import pandas as pd
+
 
 def parse_trf_output(tr_fn):
     """
@@ -69,8 +71,10 @@ def parse_trf_output(tr_fn):
 if __name__ == '__main__':
     #def parse_trf_output(fn):
     data = []
+    out_name = sys.argv[2]
     for i in parse_trf_output(sys.argv[1]):
         data.append(i)
     #temp while I figure out how to translate this
     data = pd.DataFrame(data)
-    joblib.dump(data, "temp_trf_annos_parsed.jl")
+    print(truvari.optimize_df_memory(data))
+    joblib.dump(data, out_name, compress=5)

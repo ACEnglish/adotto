@@ -69,9 +69,19 @@ Then I ran TRF on the reference sequence of regions:
 trf409.linux64 data/tr_regions.fasta 3 7 7 80 5 40 500 -h -ngs > data/grch38.tandemrepeatfinder.txt
 ```
 
+TRF to DF
+=========
+Translate the trf output into a DataFrame with
+
+```bash
+python scripts/trf_reformatter.py data/grch38.tandemrepeatfinder.txt data/trf_annos_df.jl
+```
+This creates `data/trf_annos_df.jl`
+
+QC TRF
+======
 !! bookmark
 
-Finally, we want to translate that TRF output back to genomic coordinates and format to a bed/gz/tbi
 
 Then I checked the input source beds against this set of regions to ensure that our new set
 at least somewhat is representative of the input beds. For example, source ABC has a region
