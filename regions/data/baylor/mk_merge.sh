@@ -1,4 +1,4 @@
-zcat grch38.simpleRepeat.truvari.bed.gz \
+zgrep -v "_" grch38.simpleRepeat.truvari.bed.gz \
     | cut -f1-3 \
     | ../../scripts/bed_stats.py \
     | bedtools merge \

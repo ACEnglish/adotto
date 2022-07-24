@@ -77,4 +77,7 @@ if __name__ == '__main__':
     #temp while I figure out how to translate this
     data = pd.DataFrame(data)
     print(truvari.optimize_df_memory(data))
-    joblib.dump(data, out_name, compress=5)
+
+    joblib.dump(data, out_name + '.jl', compress=5)
+    columns = ['chrom', 'start', 'end', 'period', 'copies', 'score', 'entropy', 'repeat']
+    data[columns].to_csv(out_name + '.bed', sep='\t', index=False, header=False)
