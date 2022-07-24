@@ -1,15 +1,15 @@
-# Random of an annotated region with the pacbio source
+# Random annotated region with the pacbio source
 annotated entry
 ```
 chr1    13601966        13602090        17      7.4     321     1.84    GGTGGCTCATGCCTTTG
 ```
 
-regions part of region
+part of region
 ```
 chr1    13601936        13602107
 ```
 
-pacbio merged bed etry
+pacbio merged bed entry
 ```
 chr1    13601966        13602051
 ```
@@ -23,7 +23,7 @@ grch38 reference
 ```
 >chr1:13601967-13602091
 GGTGGCTCATGCCTTTGGGTGGCTCATGCCTTTGGGTGGCTCATGCCTTTGGGTGGCTCATGCCTTTGGGTGGCTCATGCCTTTGGGTGGCTCAGCACTTTGGGTGGCTCAGCACTTCGGGAGGC
-||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||***|||||||||||||****|||*|||*|||
+||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||***||||||||||||||***|||*|||*|||
 GGTGGCTCATGCCTTTG                 GGTGGCTCATGCCTTTG                 GGTGGCTCATGCCTTTG                 GGTGGCTCATGCCTTTG
                  GGTGGCTCATGCCTTTG                 GGTGGCTCATGCCTTTG                 GGTGGCTCATGCCTTTG                 GGTGGC
 									             <pacbio stops here (exact matches?)
