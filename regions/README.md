@@ -55,7 +55,7 @@ All the intermediate stats files generated can be concatenated into a single tab
 ```
 python scripts/consolidate_stats.py > data/region_stats.txt
 ```
-A summary is performed with `notebooks/..`
+A summary is performed with `notebooks/regionstatssummary.ipynb`
 
 Defining Repeats
 ================
@@ -94,7 +94,26 @@ This creates `data/trf_annos.jl`, a DataFrame for analysis and `data/trf_annos.b
 
 QC TRF
 ======
-!! bookmark
+We can QC the trf_annos.jl, and there's some other intermediate stats files we want to generate
+before pulling it all into a notebook to make the summaries.
+
+1) What percent of our regions had annotations
+	I can just pull the tr_regions.bed.gz as well as the trf_annos.jl and do those counts
+2) How many annotations are we dealing with:
+	This is just a summary of trf_annos.jl
+3) How many of the trf_annos overlap with the input merged.bed
+	50% reciprocal overlap
+	bedtools intersect -a trf_annos.bed -b merged.bed -wao -r -f 0.50 | grep -vc "-1"
+	This is what needs to be put into a script so we can generate it.
+
+d[d['intersection'] != 0].groupby(['source', 'ro'])['count'].sum().unstack()
+	makes that data
+
+Then I'm good to go for the notebook
+Run this script to generate stats on the trf outputs:
+```bash
+qc_trf_results.py...
+```
 
 
 Then I checked the input source beds against this set of regions to ensure that our new set
