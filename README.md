@@ -29,12 +29,20 @@ recreated and/or improved upon.
 
 Please feel free to open Issues in this repository for any questions - software related or otherwise.
 
+Data
+====
+Data can be packaged up and put in a tar with the same directory structure using:
+```bash
+find base -name "*.txt" | tar czvf base.tgz -T -
+```
+Then, unzipping the data from the same directory will put the files in-place
+
 Progress
 ========
 Rough estimates of the progress for each analysis section.  Last updated  `Fri Jul 22 02:03:49 CDT 2022`
 | Step            |  %  |
 | --------------- | --- |
-| regions         | 70% |
+| regions         | 80% |
 | variant_calling | 95% |
 | realignment     | 20% | 
 | bench creation  | 5%  |

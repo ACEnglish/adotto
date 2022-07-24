@@ -107,17 +107,12 @@ We can QC the trf_annos.jl, and the `intersection.jl`, `region_stats.txt`, `trf_
 
 `notebooks/analysis.ipynb`
 
-ToDo
-====
+Unannotated regions
+===================
+Find `data/tr_regions.bed` without any `data/tr_annotations.bed` using
+```bash
+bedtools intersect -a tr_regions.bed.gz -b tr_annotated.bed -c | awk '$4 == 0' > unannotated_regions.bed
+```
 
-- Need input on the tr_annotated.bed and tr_regions.bed
-  - Spanning the correct places in the tr_regions.bed?
-  - tr_annotated.bed entries correct?
-  - How can we find the tandem-repeat motifs in the 20% of tr_regions.bed without entries in tr_annotated.bed?
-- Intersection with HG002
-  - Can make a subset of regions/annotations based on their intersection with TrioHifiAsm
-- Intersection with pVCF
-  - How many tr_regions/annotated have variants within?
-  - Do we count non-SNPs? a.k.a. 
-- Do `truvari anno trf` experiments
-
+Inside `manual_inspection/` are notes of looking at annotated and unannotated regions when intersected back to the
+sources.
