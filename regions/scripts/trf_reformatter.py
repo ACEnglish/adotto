@@ -45,7 +45,10 @@ def parse_trf_output(tr_fn):
         name = name.strip()[1:]
         chrom, coords = name.split(':')
         wgs_start, wgs_end = coords.split('-')
-        wgs_start = int(wgs_start) - 1 # 0-based correction
+        # 0-based correction
+        wgs_start = int(wgs_start) - 2 
+        # -1 because faidx is 1-based (found in annotation header)
+        # & -1 because trf start is 1-based (found in start)
         wgs_end = int(wgs_end)
         while True:
             line = fh.readline()
@@ -55,7 +58,7 @@ def parse_trf_output(tr_fn):
                 name = line.strip()[1:]
                 chrom, coords = name.split(':')
                 wgs_start, wgs_end = coords.split('-')
-                wgs_start = int(wgs_start) - 1 # 0-based correction
+                wgs_start = int(wgs_start) - 2 # 0-based correction
                 wgs_end = int(wgs_end)
                 continue
             line = line.strip().split(' ')
