@@ -116,3 +116,11 @@ bedtools intersect -a tr_regions.bed.gz -b tr_annotated.bed -c | awk '$4 == 0' >
 
 Inside `manual_inspection/` are notes of looking at annotated and unannotated regions when intersected back to the
 sources.
+Tips - commands for pulling stuff:
+```
+tabix some.bed.gz chr:start-end # Query bedfiles
+samtools faidx reference.fa chr:start-end # Query for sequence
+bcftools view -r chr:start-end some.vcf.gz # Query variants
+```
+Note `samtools faidx` is not the same coordinate system as `tabix`. But the bed files are 0-based and vcfs are 1-based,
+both half-open(?).
