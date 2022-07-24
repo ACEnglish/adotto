@@ -92,11 +92,25 @@ python scripts/trf_reformatter.py data/grch38.tandemrepeatfinder.txt data/trf_an
 ```
 This creates `data/trf_annos.jl`, a DataFrame for analysis and `data/trf_annos.bed`.
 
+TRF Intersection
+================
+Intersect the trf_annos back to the input sources for QC
+
+```bash
+python scripts/bed_intersection_stats.py
+```
+Note: run this inside the `regions/` directory. It has hard coded paths. Writes to `data/intersection.jl`
+
 QC TRF
 ======
-We can QC the trf_annos.jl, and there's some other intermediate stats files we want to generate
-before pulling it all into a notebook to make the summaries.
+Now we want to put it all together.
+We can QC the trf_annos.jl, and the `intersection.jl`, `region_stats.txt`, `trf_regions.bed`, etc
 
+`notebooks/qcregions.ipynb`
+random note:
+`d[d['intersection'] != 0].groupby(['source', 'ro'])['count'].sum().unstack()`
+
+questions to anser:
 1) What percent of our regions had annotations
 	I can just pull the tr_regions.bed.gz as well as the trf_annos.jl and do those counts
 2) How many annotations are we dealing with:
@@ -106,22 +120,4 @@ before pulling it all into a notebook to make the summaries.
 	bedtools intersect -a trf_annos.bed -b merged.bed -wao -r -f 0.50 | grep -vc "-1"
 	This is what needs to be put into a script so we can generate it.
 
-d[d['intersection'] != 0].groupby(['source', 'ro'])['count'].sum().unstack()
 	makes that data
-
-Then I'm good to go for the notebook
-Run this script to generate stats on the trf outputs:
-```bash
-qc_trf_results.py...
-```
-
-
-Then I checked the input source beds against this set of regions to ensure that our new set
-at least somewhat is representative of the input beds. For example, source ABC has a region
-on chr:pos-end with motif GGG. Does this final produced bed have that same (or a similar) 
-repeat description?
-
-`stats` of the remaining regions
-
-
-
