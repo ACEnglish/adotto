@@ -55,7 +55,6 @@ All the intermediate stats files generated can be concatenated into a single tab
 ```
 python scripts/consolidate_stats.py > data/region_stats.txt
 ```
-A summary is performed with `notebooks/regionstatssummary.ipynb`
 
 Defining Repeats
 ================
@@ -106,18 +105,19 @@ QC TRF
 Now we want to put it all together.
 We can QC the trf_annos.jl, and the `intersection.jl`, `region_stats.txt`, `trf_regions.bed`, etc
 
-`notebooks/qcregions.ipynb`
-random note:
-`d[d['intersection'] != 0].groupby(['source', 'ro'])['count'].sum().unstack()`
+`notebooks/analysis.ipynb`
 
-questions to anser:
-1) What percent of our regions had annotations
-	I can just pull the tr_regions.bed.gz as well as the trf_annos.jl and do those counts
-2) How many annotations are we dealing with:
-	This is just a summary of trf_annos.jl
-3) How many of the trf_annos overlap with the input merged.bed
-	50% reciprocal overlap
-	bedtools intersect -a trf_annos.bed -b merged.bed -wao -r -f 0.50 | grep -vc "-1"
-	This is what needs to be put into a script so we can generate it.
+ToDo
+====
 
-	makes that data
+- Need input on the tr_annotated.bed and tr_regions.bed
+  - Spanning the correct places in the tr_regions.bed?
+  - tr_annotated.bed entries correct?
+  - How can we find the tandem-repeat motifs in the 20% of tr_regions.bed without entries in tr_annotated.bed?
+- Intersection with HG002
+  - Can make a subset of regions/annotations based on their intersection with TrioHifiAsm
+- Intersection with pVCF
+  - How many tr_regions/annotated have variants within?
+  - Do we count non-SNPs? a.k.a. 
+- Do `truvari anno trf` experiments
+
