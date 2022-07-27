@@ -23,7 +23,6 @@ HG03009	HG03009	unrel	male	BEB	Bengali	SAS	South Asian Ancestry
 HG03065	SL05	child	male	MSL	Mende	AFR	African Ancestry	
 HG03125	NG34	child	female	ESN	Esan	AFR	African Ancestry	
 HG03371	NG98	child	male	ESN	Esan	AFR	African Ancestry	
-HG03486	SL61	child	female	MSL	Mende	AFR	African Ancestry	
 HG03683	ST012	child	female	STU	Tamil	SAS	South Asian Ancestry	
 HG03732	IT003	child	male	ITU	Telugu	SAS	South Asian Ancestry	
 NA12329	1328	child	female	CEU	CEPH	EUR	European Ancestry	
@@ -37,3 +36,43 @@ NA19983	2436	child	female	ASW	African Ancestry SW	AFR	African Ancestry
 NA20509	NA20509	unrel	male	TSI	Toscani	EUR	European Ancestry	
 NA20847	NA20847	unrel	female	GIH	Gujarati	SAS	South Asian Ancestry	
 PGP1	PGP	unrel	male	CEU	Utah Residents (CEPH) with Northern and Western European Ancestry	EUR	European Ancestry	
+HG00438	SH012	child	female	CHS	Southern Han Chinese	EAS	East Asian Ancestry	
+HG00621	SH066	child	male	CHS	Southern Han Chinese	EAS	East Asian Ancestry	
+HG00673	SH079	child	male	CHS	Southern Han Chinese	EAS	East Asian Ancestry	
+HG00735	PR06	child	female	PUR	Puerto Rican	AMR	American Ancestry	
+HG00741	PR09	child	female	PUR	Puerto Rican	AMR	American Ancestry	
+HG01071	PR17	child	female	PUR	Puerto Rican	AMR	American Ancestry	
+HG01106	PR25	child	male	PUR	Puerto Rican	AMR	American Ancestry	
+HG01109	PR33	child	male	PUR	Puerto Rican	AMR	American Ancestry	
+HG01123	CLM02	child	female	CLM	Colombian	AMR	American Ancestry	
+HG01175	PR36	child	female	PUR	Puerto Rican	AMR	American Ancestry	
+HG01243	PR22	child	male	PUR	Puerto Rican	AMR	American Ancestry	
+HG01258	CLM16	child	male	CLM	Colombian	AMR	American Ancestry	
+HG01358	CLM31	child	male	CLM	Colombian	AMR	American Ancestry	
+HG01361	CLM32	child	female	CLM	Colombian	AMR	American Ancestry	
+HG01891	BB05	child	female	ACB	African Caribbean	AFR	African Ancestry	
+HG01928	PEL011	child	male	PEL	Peruvian	AMR	American Ancestry	
+HG01952	PEL019	child	male	PEL	Peruvian	AMR	American Ancestry	
+HG01978	PEL26	child	female	PEL	Peruvian	AMR	American Ancestry	
+HG02055	BB15	child	male	ACB	African Caribbean	AFR	African Ancestry	
+HG02080	VN068	child	female	KHV	Kinh Vietnamese	EAS	East Asian Ancestry	
+HG02145	BB20	child	male	ACB	African Caribbean	AFR	African Ancestry	
+HG02148	PEL39	child	female	PEL	Peruvian	AMR	American Ancestry	
+HG02257	BB21	child	female	ACB	African Caribbean	AFR	African Ancestry	
+HG02486	BB55	child	male	ACB	African Caribbean	AFR	African Ancestry	
+HG02559	BB68	child	female	ACB	African Caribbean	AFR	African Ancestry	
+HG02572	GB21	child	male	GWD	Gambian Mandinka	AFR	African Ancestry	
+HG02622	GB31	child	female	GWD	Gambian Mandinka	AFR	African Ancestry	
+HG02630	GB33	child	female	GWD	Gambian Mandinka	AFR	African Ancestry	
+HG02717	GB50	child	male	GWD	Gambian Mandinka	AFR	African Ancestry	
+HG02723	GB52	child	female	GWD	Gambian Mandinka	AFR	African Ancestry	
+HG02886	GB89	child	female	GWD	Gambian Mandinka	AFR	African Ancestry	
+HG03098	SL16	child	male	MSL	Mende	AFR	African Ancestry	
+HG03453	SL50	child	female	MSL	Mende	AFR	African Ancestry	
+HG03486	SL61	child	female	MSL	Mende	AFR	African Ancestry	
+HG03492	PK43	child	male	PJL	Punjabi	SAS	South Asian Ancestry	
+HG03516	NG107	child	female	ESN	Esan	AFR	African Ancestry	
+HG03540	GB125	child	female	GWD	Gambian Mandinka	AFR	African Ancestry	
+HG03579	SL72	child	male	MSL	Mende	AFR	African Ancestry	
+NA18906	Y020	child	female	YRI	Yoruba	AFR	African Ancestry	
+NA20129	2433	child	female	ASW	African Ancestry SW	AFR	African Ancestry	

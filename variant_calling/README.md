@@ -15,6 +15,8 @@ The columns are:
 
 This file helps with batch job submission.
 
+For HPRC assemblies (in-progres), we downloaded the AGC file and extracted per-sample as needed
+
 # Step 1 - requirements
 
 Below is a list of tools/libraries used by the code. Setup your environment to have them all available 
