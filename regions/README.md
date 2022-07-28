@@ -5,7 +5,7 @@ We need to define what regions of the genome contain tandem-repeats (of interest
 
 Data setup
 ==========
-We collected tandem repeat region bed files from various sources and merge them. See DataDescriptions.md for details
+We collected tandem repeat region bed files from various sources and merge them. See [DataDescription.md](DataDescription.md) for details
 
 The sub directories of `data/` are each named for the contributor. Inside of those directories is `mk_merge.sh`
 which will create the merged beds with something like
