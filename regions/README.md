@@ -5,15 +5,9 @@ We need to define what regions of the genome contain tandem-repeats (of interest
 
 Data setup
 ==========
-We collected tandem repeat region bed files from various sources and merge them
+We collected tandem repeat region bed files from various sources and merge them. See DataDescriptions.md for details
 
-* [GIAB annotations](https://ftp-trace.ncbi.nlm.nih.gov/ReferenceSamples/giab/release/genome-stratifications/v3.0/GRCh38/LowComplexity/)
-* [UCSC Simple repeat annotations](https://genome.ucsc.edu/cgi-bin/hgTables?db=mm10&hgta_group=varRep&hgta_track=simpleRepeat&hgta_table=simpleRepeat&hgta_doSchema=describe+table+schema)
-* Pacbio - To be specified
-* UCSD1 - To be specified
-* UCSD2 - To be specified
-
-The sub directories of `data/` are each named for the contributing source. Inside of those directories is `mk_merge.sh`
+The sub directories of `data/` are each named for the contributor. Inside of those directories is `mk_merge.sh`
 which will create the merged beds with something like
 
 ```bash
