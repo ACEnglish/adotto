@@ -7,8 +7,6 @@ import logging
 import truvari
 import pandas as pd
 
-
-
 def do_intersection(a, b, ro=None):
     """
     Returns the intersection counts as a dataframe

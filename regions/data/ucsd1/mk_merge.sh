@@ -1,4 +1,4 @@
-bedtools sort -i ensembleTR_loci_list.txt \
+bedtools sort -i ensembleTR_loci_list.bed.gz \
     | ../../scripts/bed_stats.py \
     | bedtools merge \
     | ../../scripts/merged_bed_filter.py \
