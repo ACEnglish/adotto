@@ -47,12 +47,11 @@ if __name__ == '__main__':
     coverage = pd.concat(cov_parts)
     joblib.dump(coverage, "coverage.jl")
 
-    logging.info("dumping pre_trees")
-    joblib.dump(tree_parts, 'pre_trees.jl')
+    #logging.info("dumping pre_trees")
+    #joblib.dump(tree_parts, 'pre_trees.jl')
 
     logging.info("tree union")
     all_chroms = set(itertools.chain(*[_.keys() for _ in tree_parts]))
-    logging.info(all_chroms)
     tree = tree_parts[0]
     for i in tree_parts[1:]:
         for chrom in all_chroms:

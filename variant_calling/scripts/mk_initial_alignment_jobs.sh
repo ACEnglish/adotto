@@ -1,7 +1,7 @@
 mkdir -p jobs
 mkdir -p logs
 
-ref=/users/u233287/scratch/insertion_ref/msru/data/reference/grch38/GRCh38_1kg_mainchrs.fa
+ref=$1
 
 grep -vw 'rel_path' assemblies/relative_path_metadata.txt | while read sample project haplotag rel_path
 do

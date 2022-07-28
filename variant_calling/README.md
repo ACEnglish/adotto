@@ -125,7 +125,6 @@ The coverage_files.txt just organizes the pairs of cov.bed files per-sample
 This script creates three files that make it easier to look up coverage across all the samples for squaring-off the VCF.
 * annotree.jl - joblib saved intervaltrees per-chromosome with keys that link to the coverage entries
 * coverage.jl - joblib saved pandas dataframe with keys from the intervaltrees and actual coverage depths
-* pre_trees.jl - a debugging file
 
 ```bash
 python scripts/annotate_pvcf_cov.py GRCh38.variants.vcf.gz annotree.jl coverage.jl | bgzip > GRCh38.variants.sqoff.vcf.gz
