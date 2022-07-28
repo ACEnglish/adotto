@@ -26,17 +26,17 @@ Note! the data_list.txt is put into .gitignore to help keep `git status` clean
 
 ### Notes:
 List of files and their descriptions:
-* data/tr_regions.bed.gz - Final set of tandem-repeat regions for analysis
-* data/tr_annotated.bed.gz - TandemRepeatFinder annotations over the tandem-repeat regions
-* data/unannotated_regions.bed.gz - tr_regions.bed.gz which have no accompanying tr_annotated.bed.gz entries
-* data/merged.slop25.bed.gz - Merged calls from the sources with 25bp of slop added to each end
-* data/giab/giab_concat_input.bed.gz - Raw input provided by GIAB from [ftp](https://ftp-trace.ncbi.nlm.nih.gov/ReferenceSamples/giab/release/genome-stratifications/v3.0/GRCh38/LowComplexity/)
-* data/giab/merged.bed.gz - GIAB regions merged
-* data/baylor/grch38.simpleRepeat.truvari.bed.gz - Raw input provided by baylor from [UCSC Simple repeat annotations](https://genome.ucsc.edu/cgi-bin/hgTables?db=mm10&hgta_group=varRep&hgta_track=simpleRepeat&hgta_table=simpleRepeat&hgta_doSchema=describe+table+schema)
-* data/baylor/merged.bed.gz - Baylor regions merged
-* data/pacbio/repeat_catalog.hg38.bed.gz - Raw input provided by pacbio from [Illumina](https://github.com/illumina/Repeatcatalogs)
-* data/pacbio/merged.bed.gz - Pacbio regions merged
-* data/ucsd1/ensembleTR_loci_list.bed.gz - Raw input provided by UCSD from ensemble
-* data/ucsd1/merged.bed.gz - UCSD1 regions merged
-* data/ucsd2/GIAB_adVNTR_short_VNTR_regions.bed.gz - Raw input provided by UCSD from ???
-* data/ucsd2/merged.bed.gz - UCSD2 regions merged
+* `data/tr_regions.bed.gz` - Final set of tandem-repeat regions for analysis
+* `data/tr_annotated.bed.gz` - TandemRepeatFinder annotations over the tandem-repeat regions
+* `data/unannotated_regions.bed.gz` - tr_regions.bed.gz which have no accompanying tr_annotated.bed.gz entries
+* `data/merged.slop25.bed.gz` - Merged calls from the sources with 25bp of slop added to each end
+* `data/giab/giab_concat_input.bed.gz` - Raw input provided by GIAB from [ftp](https://ftp-trace.ncbi.nlm.nih.gov/ReferenceSamples/giab/release/genome-stratifications/v3.0/GRCh38/LowComplexity/)
+* `data/giab/merged.bed.gz` - GIAB regions merged
+* `data/baylor/grch38.simpleRepeat.truvari.bed.gz` - Raw input provided by baylor from [UCSC Simple repeat annotations](https://genome.ucsc.edu/cgi-bin/hgTables?db=mm10&hgta_group=varRep&hgta_track=simpleRepeat&hgta_table=simpleRepeat&hgta_doSchema=describe+table+schema)
+* `data/baylor/merged.bed.gz` - Baylor regions merged
+* `data/pacbio/repeat_catalog.hg38.bed.gz` - Raw input provided by pacbio from [Illumina](https://github.com/illumina/Repeatcatalogs)
+* `data/pacbio/merged.bed.gz` - Pacbio regions merged
+* `data/ucsd1/ensembleTR_loci_list.bed.gz` - Raw input provided by UCSD from ensemble
+* `data/ucsd1/merged.bed.gz` - UCSD1 regions merged
+* `data/ucsd2/GIAB_adVNTR_short_VNTR_regions.bed.gz` - Raw input provided by UCSD from ???
+* `data/ucsd2/merged.bed.gz` - UCSD2 regions merged
