@@ -31,11 +31,11 @@ Please feel free to open Issues in this repository for any questions - software 
 
 Data
 ====
-Data can be packaged up and put in a tar with the same directory structure using:
-```bash
-find base -name "*.txt" | tar czvf base.tgz -T -
-```
-Then, unzipping the data from the same directory will put the files in-place
+Inputs and results are tracked and versioned using [zenodo.org](zenodo.org)
+
+| Dataset | Zenodo | Current Version | Details |
+| ------- | ------ | --------------- | ------- |
+| Regions | [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.6930202.svg)](https://doi.org/10.5281/zenodo.6930202) | v0.1 | [Link](regions/DataDescription.md) | 
 
 Progress
 ========
