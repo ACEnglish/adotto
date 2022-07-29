@@ -3,21 +3,7 @@ pVCF
 
 A pipeline for turning long-read assemblies into project level VCFs.
 
-# Step 0 - organize the input assembly fies
-
-Inside of the `assemblies` folder, there's a file named `relative_path_metadata.txt`.
-This holds the metadata and relative file paths to the input long-read haplotype resolved assemblies.
-The columns are:
-* sample - name of the sample
-* project - name of the project which produced the assembly
-* haplotag - identifier of which haplotype the fasta file contains
-* rel_path - relative path of the assembly
-
-This file helps with batch job submission.
-
-For HPRC assemblies (in-progres), we downloaded the AGC file and extracted per-sample as needed
-
-# Step 1 - requirements
+# Step 0 - requirements
 
 Below is a list of tools/libraries used by the code. Setup your environment to have them all available 
 
@@ -32,6 +18,21 @@ Requirements:
 * bgzip/tabix
 * python3
   * truvari - v3.4+ [link](https://github.com/ACEnglish/truvari)
+
+# Step 1 - organize the input assembly files
+
+Inside of the `assemblies` folder, there's a file named `relative_path_metadata.txt`.
+This holds the metadata and relative file paths to the input long-read haplotype resolved assemblies.
+The columns are:
+* sample - name of the sample
+* project - name of the project which produced the assembly
+* haplotag - identifier of which haplotype the fasta file contains
+* rel_path - relative path of the assembly
+
+This file helps with batch job submission.
+
+For HPRC assemblies (in-progress), we downloaded the AGC file and extracted per-sample as needed
+
 
 # Step 2 - map each haplotype
 
@@ -68,16 +69,21 @@ batching
 --------
 Use `scripts/mk_initial_alignment_jobs.sh` to create all the mapping commands at once. This parses the
 `assemblies/relative_path_metadata.txt` to make one `job/aln_${project}_${sample}_${haplotag}.sh` script
-per-hapotype. These scripts can then be easily submitted to a cluster.
+per-haplotype. These scripts can then be easily submitted to a cluster.
 
 Note: the reference is hard-coded into this script.
 
-# Step 2 - combining haplotypes per-sample
+# Step 2.5 - create mapping stats
+
+One or more directories produced in step 2 can be parsed with `scripts/hap_mapstats.py` and turned into a dataframe saved as
+`hap_mapstats.jl`. The directory's name is used as the index for the results.
+
+# Step 3 - combining haplotypes per-sample
 
 Once a haplotype-pair is through initial alignment, two VCFs need to be combined to make the samples' VCF. Use
 `scripts/merge_haps.sh` to do the combining. This step will use `bcftools merge` to combine the two VCFs, matching
 exactly identical alleles, use the `scripts/single_sample_cov.py` to consolidate the SAMPLE information, add coverage
-relevant FORMAT fields, add INFO/SVLEN,INFO/SVTYPE annotaitons, and remove the minimap INFO/Q.\* fields
+relevant FORMAT fields, add INFO/SVLEN,INFO/SVTYPE annotations, and remove the minimap INFO/Q.\* fields
 
 usage
 -----
@@ -93,7 +99,7 @@ bash scripts/merge_haps.sh hap1.vcf.gz hap1.bed hap2.vcf.gz hap2.bed sample outp
 
 I organized the outputs into e.g. hapo_merged/eichler_HG00864.vcf.gz
 
-# Step 3 - merging between samples
+# Step 4 - merging between samples
 
 First, we make the header
 ```bash
@@ -108,14 +114,14 @@ bcftools merge -m none hapo_merged/*.vcf.gz --use-header pVCFs/GRCh38.variants.h
 ```
 The sample_order.txt is just the list of the sample names so that we can control their order in the pVCF.
 
-# Step 4 (optional) - create shards
+# Step 5 (optional) - create shards
 At this point, the GRCh38.variants.vcf.gz is pretty big. To speed up the squaring-off step, we divide it into shards
 
 ```bash
 truvari divide -m 1000000 pVCFs/GRCh38.variants.vcf.gz pVCFs/parts/
 ```
 
-# Step 5 - squaring off
+# Step 6 - squaring off
 Naturally, there are a lot of missing (`./.`) genotypes inside the pVCF. We can square it off with the tool
 
 ```bash
@@ -132,7 +138,7 @@ python scripts/annotate_pvcf_cov.py GRCh38.variants.vcf.gz annotree.jl coverage.
 
 Note: This is slow. I ran one job for each `pVCFs/parts/*.vcf.gz` and they each took approximately an hour.
 
-# Step 6 (optional) - combine the parts
+# Step 7 (optional) - combine the parts
 If Step 4 was performed, and you used truvari v3.4-dev+ such that the divide output VCF names have `ls`-sortable vcfs,
 recombine the parts using
 ```bash

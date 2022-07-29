@@ -13,3 +13,9 @@ data/ucsd1/ensembleTR_loci_list.bed.gz
 data/ucsd1/merged.bed.gz
 data/ucsd2/GIAB_adVNTR_short_VNTR_regions.bed.gz
 data/ucsd2/merged.bed.gz
+adotto_regions_data_v0.1.tgz
+data/intersection.jl
+data/tr_annotated.jl
+data/tr_regions.fasta.fai
+data/trf_annos_df.jl
+data/tr_regions.bed.gz
