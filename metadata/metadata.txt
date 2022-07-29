@@ -1,6 +1,6 @@
 Individual	FamilyId	TrioState	Sex	Population code	Population name	Superpopulation code	Superpopulation name	AltIDs
-NA12878	RM8398	child	female	CEU	Utah Residents (CEPH) with Northern and Western European Ancestry	EUR	European Ancestry	NA12878,ERR3988823,GM19240
 NA24385	RM8392	child	male	ASH	Ashkenazi	EUR	European Ancestry	HG002,GM24385,huAA53E0
+NA12878	RM8398	child	female	CEU	Utah Residents (CEPH) with Northern and Western European Ancestry	EUR	European Ancestry	NA12878,ERR3988823,GM19240
 NA12891	RM8398	father	male	CEU	Utah Residents (CEPH) with Northern and Western European Ancestry	EUR	European Ancestry	
 NA12892	RM8398	mother	female	CEU	Utah Residents (CEPH) with Northern and Western European Ancestry	EUR	European Ancestry	
 HG00096	HG00096	unrel	male	GBR	British	EUR	European Ancestry	
@@ -18,7 +18,6 @@ HG01596	VN002	unrel	male	KHV	Kinh Vietnamese	EAS	East Asian Ancestry
 HG02011	BB13	child	male	ACB	African Caribbean	AFR	African Ancestry	
 HG02492	PK06	child	male	PJL	Punjabi	SAS	South Asian Ancestry	
 HG02587	GB24	child	female	GWD	Gambian Mandinka	AFR	African Ancestry	
-HG02818	GB66	child	female	GWD	Gambian Mandinka	AFR	African Ancestry	
 HG03009	HG03009	unrel	male	BEB	Bengali	SAS	South Asian Ancestry	
 HG03065	SL05	child	male	MSL	Mende	AFR	African Ancestry	
 HG03125	NG34	child	female	ESN	Esan	AFR	African Ancestry	
@@ -66,6 +65,7 @@ HG02622	GB31	child	female	GWD	Gambian Mandinka	AFR	African Ancestry
 HG02630	GB33	child	female	GWD	Gambian Mandinka	AFR	African Ancestry	
 HG02717	GB50	child	male	GWD	Gambian Mandinka	AFR	African Ancestry	
 HG02723	GB52	child	female	GWD	Gambian Mandinka	AFR	African Ancestry	
+HG02818	GB66	child	female	GWD	Gambian Mandinka	AFR	African Ancestry	
 HG02886	GB89	child	female	GWD	Gambian Mandinka	AFR	African Ancestry	
 HG03098	SL16	child	male	MSL	Mende	AFR	African Ancestry	
 HG03453	SL50	child	female	MSL	Mende	AFR	African Ancestry	
@@ -76,3 +76,7 @@ HG03540	GB125	child	female	GWD	Gambian Mandinka	AFR	African Ancestry
 HG03579	SL72	child	male	MSL	Mende	AFR	African Ancestry	
 NA18906	Y020	child	female	YRI	Yoruba	AFR	African Ancestry	
 NA20129	2433	child	female	ASW	African Ancestry SW	AFR	African Ancestry	
+HG02109	BB18	child	female	ACB	African Caribbean	AFR	African Ancestry	
+HG005	3150	child	male	CHB	Han Chinese	EAS	East Asian Ancestry	NA24631
+HG002	RM8392	child	male	ASH	Ashkenazi	EUR	European Ancestry	NA24385,GM24385,huAA53E0
+NA21309	2565	child		MKK	Maasai in Kinyawa	AFR	African Ancestry	
