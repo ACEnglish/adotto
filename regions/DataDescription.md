@@ -19,7 +19,9 @@ Note! the data_list.txt is put into .gitignore to help keep `git status` clean
 # Versions:
 
 ## v0.1 - Initial version
+(Click the badge to go to the download page)  
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.6930202.svg)](https://doi.org/10.5281/zenodo.6930202)
+
 
 ### CHANGES:
 * It exists
