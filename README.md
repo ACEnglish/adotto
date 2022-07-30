@@ -13,7 +13,7 @@ kept on github will be made available and  documented such that a user can find 
 a clone of this repo in order to run sub-parts of the analysis.
 
 * regions - Identification of Tandem-Repeat regions of a reference
-* variant_calling - Calling variants from long-read haplotype resolved assemblies
+* variants - Calling variants from long-read haplotype resolved assemblies
 * realignment - Joint-realignment of tandem-repeat regions of a reference
 * benchmarking - Scripts and results from benchmarking work
 * manuscript - Summary and plotting workflows for the publication
@@ -42,8 +42,8 @@ Progress
 Rough estimates of the progress for each analysis section.  Last updated  `Fri Jul 22 02:03:49 CDT 2022`
 | Step            |  %  |
 | --------------- | --- |
-| regions         | 80% |
-| variant_calling | 95% |
+| regions         | 85% |
+| variants        | 90% |
 | realignment     | 20% | 
 | bench creation  | 5%  |
 | benchmarking    | 0%  |
