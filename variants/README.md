@@ -37,7 +37,7 @@ For HPRC assemblies (in-progress), we downloaded the AGC file and extracted per-
 # Step 2 - map each haplotype
 
 Each assembly is a single haplotype of a sample. `scripts/map_haplo.sh` will align a fasta to a reference, call
-variants, create coverage beds, generate basic qc stats, and produce an annotated VCF.
+variants, create coverage beds, generate basic qc stats, and produce an annotated VCF. This summary is explored in `notebooks/HaplotypeCoverage.ipynb`
 
 usage
 -----
