@@ -79,4 +79,4 @@ NA20129	2433	child	female	ASW	African Ancestry SW	AFR	African Ancestry
 HG02109	BB18	child	female	ACB	African Caribbean	AFR	African Ancestry	
 HG005	3150	child	male	CHB	Han Chinese	EAS	East Asian Ancestry	NA24631
 HG002	RM8392	child	male	ASH	Ashkenazi	EUR	European Ancestry	NA24385,GM24385,huAA53E0
-NA21309	2565	child		MKK	Maasai in Kinyawa	AFR	African Ancestry	
+NA21309	2565	child	female	MKK	Maasai in Kinyawa	AFR	African Ancestry	
