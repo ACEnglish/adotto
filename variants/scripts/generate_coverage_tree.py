@@ -26,6 +26,8 @@ if __name__ == '__main__':
     """
     """
     cov_files = sys.argv[1]
+    out_base_name = sys.argv[2] + '.' if len(sys.argv) >= 3 else ""
+
     truvari.setup_logging()
     cov_parts = []
     tree_parts = []
@@ -45,7 +47,7 @@ if __name__ == '__main__':
 
     logging.info("dumping coverage")
     coverage = pd.concat(cov_parts)
-    joblib.dump(coverage, "coverage.jl")
+    joblib.dump(coverage, out_base_name + "coverage.jl")
 
     #logging.info("dumping pre_trees")
     #joblib.dump(tree_parts, 'pre_trees.jl')
@@ -66,6 +68,6 @@ if __name__ == '__main__':
         tree[chrom].merge_overlaps(data_reducer=m_reducer, data_initializer=[])
         
     logging.info("dumping trees")
-    joblib.dump(tree, 'annotree.jl')
+    joblib.dump(tree, out_base_name + 'annotree.jl')
 
     logging.info("finished")
