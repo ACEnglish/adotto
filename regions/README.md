@@ -118,3 +118,8 @@ bcftools view -r chr:start-end some.vcf.gz # Query variants
 ```
 Note `samtools faidx` is not the same coordinate system as `tabix`. But the bed files are 0-based and vcfs are 1-based,
 both half-open(?).
+
+Next steps
+==========
+After creating variants, go to `intersection/` to use the variants to perform more filtering and analysis on the
+tr_regions/annotations.
