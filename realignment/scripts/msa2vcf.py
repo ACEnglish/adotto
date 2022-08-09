@@ -45,22 +45,8 @@ print("##contig=<ID=chrX,length=156040895>")
 print("##contig=<ID=chrY,length=57227415>")
 print('##FORMAT=<ID=GT,Number=1,Type=String,Description="Genotype">')
 
-# This also needs to be pulled out from the VCF (I think)
-sample_names = ["HG00096", "HG00171", "HG02587", "NA20847", "HG03486", "HG03065", "NA20509", "HG00512", "HG02818",
-"HG03371", "HG03009", "NA12329", "NA19983", "NA19239", "HG01114", "NA18534", "HG00864", "HG00514", "HG00731", "NA18939",
-"HG03125", "NA19240", "HG03732", "HG02492", "NA19238", "NA19650", "HG01505", "HG02011", "HG00513", "HG01596", "HG03683",
-"HG00732", "NA24385", "HG00733", "NA12878", "PGP1"]
 
-# From new pVCF
-sample_names = ["HG002", "HG00096", "HG00171", "HG00512", "HG00513", "HG00514", "HG00731", "HG00732", "HG00733", "HG00864",
-                "HG01114", "HG01505", "HG01596", "HG02011", "HG02492", "HG02587", "HG02818", "HG03009", "HG03065", "HG03125",
-                "HG03371", "HG03486", "HG03683", "HG03732", "NA12329", "NA12878", "NA18534", "NA18939", "NA19238", "NA19239",
-                "NA19240", "NA19650", "NA19983", "NA20509", "NA20847", "NA24385", "PGP1", "li:HG00733", "li:NA12878",
-                "li:NA24385"]
-#sample_names = sorted(list(sample_names))
 
-sys.stdout.write("#CHROM	POS	ID	REF	ALT	QUAL	FILTER	INFO	FORMAT\t")
-sys.stdout.write("\t".join(sample_names) + '\n')
 
 # The ref_key identifies reference
 ref_key = [_ for _ in msa.references if _.startswith("ref_")][0]
@@ -74,9 +60,13 @@ ALTIDX = 4
 # We merge variants that are identical
 final_vars = defaultdict(list)
 
+sample_names = set()
+
 for alt_key in msa.references:
     if alt_key.startswith("ref_"):
         continue
+    cur_samps = alt_key.split(';')
+    sample_names.update([_.split('_')[0] for _ in cur_samps])
     alt_seq = msa[alt_key].upper()
     # Gotta assume the first base is a match (little unsafe)
     anchor_base = ref_seq[0]
@@ -105,13 +95,12 @@ for alt_key in msa.references:
                 # this is a weird edge check
                 # sometimes reference bases aren't aligned
                 if cur_variant[REFIDX] != cur_variant[ALTIDX]:
-                    final_vars[key].extend(alt_key.split(';'))
+                    final_vars[key].extend(cur_samps)
                 cur_variant = None
         else:
             if cur_variant is None:
                 # -1 for the anchor base we're forcing on
                 cur_variant = [chrom, cur_pos - 1, '.', anchor_base + ref_base, anchor_base + alt_base, '.', '.', '.', 'GT']
-                #cur_variant = [chrom, cur_pos, '.', ref_base, alt_base, '.', '.', '.', 'GT']
             else:
                 cur_variant[REFIDX] += ref_base
                 cur_variant[ALTIDX] += alt_base
@@ -128,11 +117,15 @@ for alt_key in msa.references:
         # this is a weird edge check
         # sometimes reference bases aren't aligned
         if cur_variant[REFIDX] != cur_variant[ALTIDX]:
-            final_vars[key].extend(alt_key.split(';'))
+            final_vars[key].extend(cur_samps)
         cur_variant = None
 
 
-       
+sample_names = sorted(list(sample_names))
+
+sys.stdout.write("#CHROM	POS	ID	REF	ALT	QUAL	FILTER	INFO	FORMAT\t")
+sys.stdout.write("\t".join(sample_names) + '\n')
+      
             
 for var in final_vars:
     sys.stdout.write(var)

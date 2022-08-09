@@ -45,7 +45,7 @@ Rough estimates of the progress for each analysis section.  Last updated  `Fri J
 | Step            |  %  |
 | --------------- | --- |
 | regions         | 85% |
-| variants        | 90% |
+| variants        | 91% |
 | realignment     | 20% | 
 | bench creation  | 5%  |
 | benchmarking    | 0%  |
