@@ -21,13 +21,13 @@ mkdir -p results/
 for samp_name in "${!comp_vcfs[@]}"
 do
     m_vcf="${comp_vcfs[$samp_name]}"
-    $rtg vcfeval -t $rtg_ref --squash-ploidy -e $cmrg_sm_bed \
-                 -b $cmrg_sm_vcf -c $m_vcf -o results/rtg_cmrg_${samp_name}
-    $rtg vcfeval -t $rtg_ref --squash-ploidy -e $thfa_bed \
-                 -b $thfa_ma_vcf -c $m_vcf -o results/rtg_thfa_${samp_name}
+    #$rtg vcfeval -t $rtg_ref --squash-ploidy -e $cmrg_sm_bed \
+                 #-b $cmrg_sm_vcf -c $m_vcf -o results/rtg_cmrg_${samp_name}
+    #$rtg vcfeval -t $rtg_ref --squash-ploidy -e $thfa_bed \
+                 #-b $thfa_ma_vcf -c $m_vcf -o results/rtg_thfa_${samp_name}
 
     truvari bench -b $cmrg_vcf -c $m_vcf -f $ref --includebed $cmrg_bed \
-                  -o results/truvari_cmrg_${samp_name}
+                  --passonly -o results/truvari_cmrg_${samp_name}
     truvari bench -b $thfa_vcf -c $m_vcf -f $ref --includebed $thfa_bed \
-                  -o results/truvari_thfa_${samp_name}
+                  --passonly -o results/truvari_thfa_${samp_name}
 done

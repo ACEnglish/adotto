@@ -4,6 +4,8 @@ A Project-level VCF is created per-reference. Currently, only GRCh38 autosomes +
 
 ## v0.1 - Initial version
 (Click the badge to go to the download page)  
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.6975244.svg)](https://doi.org/10.5281/zenodo.6975244)
+
 
 ### CHANGES:
 * It exists
@@ -19,3 +21,5 @@ A Project-level VCF is created per-reference. Currently, only GRCh38 autosomes +
   * Eichler
     * [FTP](https://ftp.1000genomes.ebi.ac.uk/vol1/ftp/data_collections/HGSVC2/release/v1.0/assemblies/)
     * [Citation](https://scholar.google.com/scholar_lookup?author=P+Ebert&author=PA+Audano&author=Q+Zhu&author=B+Rodriguez-Martin&author=D+Porubsky&author=MJ+Bonder&title=Haplotype-resolved+diverse+human+genomes+and+integrated+analysis+of+structural+variation&publication_year=2021&journal=Science&volume=372)
+* Files provided per-chromosome as compressed binary VCF `.bcf.gz`
+* To reduce file-size, FORMAT/FT field shortened to a single letter P[ass]|F[ail] and FORMAT/BPDP removed
