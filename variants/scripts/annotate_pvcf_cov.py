@@ -51,11 +51,14 @@ for entry in vcf:
         is_single2 = u_cov2 == 1 and d_cov2 == 1
         if is_single1 and is_single2:
             entry.samples[sample]["FT"] = 'PASS'
+            gt1, gt2 = entry.samples[sample]["GT"]
+            gt1 = 0 if gt1 is None else gt1
+            gt2 = 0 if gt2 is None else gt2
         else:
             entry.samples[sample]["FT"] = 'FAIL'
+            gt1 = 0 if u_cov1 >= 1 and d_cov1 >= 1 else None
+            gt2 = 0 if u_cov2 >= 1 and u_cov2 >= 1 else None
         # Set the genotype
-        gt1 = 0 if u_cov1 >= 1 and d_cov1 >= 1 else None
-        gt2 = 0 if u_cov2 >= 1 and u_cov2 >= 1 else None
         entry.samples[sample]["GT"] = (gt1, gt2)
         entry.samples[sample]["AD"] = (max(u_cov1, d_cov1), max(u_cov2, d_cov2))
     out.write(entry)
