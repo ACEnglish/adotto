@@ -12,11 +12,14 @@ echo "MSA realignment of region" $region
 mkdir -p msa_$region
 
 #bcftools norm -m - -c s -f $ref -r $region $vcf > msa_${region}/variants.vcf
-bcftools view -r $region -o msa_${region}/variants.vcf.gz -O z $vcf
+bcftools view -r $region $vcf \
+    | bcftools +fill-from-fasta /dev/stdin -- -c REF -f $ref \
+    | bgzip > msa_${region}/variants.vcf.gz
+
 tabix msa_${region}/variants.vcf.gz
 
 python $DIR/get_reference.py $ref $region > msa_${region}/haps.fa
-for i in $(zgrep -m1 '#CHROM' $vcf | cut -f10-)
+for i in $(bcftools view -h $vcf | grep -m1 '#CHROM' | cut -f10-)
 do
     samtools faidx $ref $region | bcftools consensus -H1 --sample $i $vcf | python $DIR/fa_rename.py ${i}_1 >> msa_${region}/haps.fa
     samtools faidx $ref $region | bcftools consensus -H2 --sample $i $vcf | python $DIR/fa_rename.py ${i}_2 >> msa_${region}/haps.fa
@@ -25,7 +28,7 @@ python $DIR/remove_redundant.py msa_${region}/haps.fa > msa_${region}/haps_nored
 
 
 #/users/u233287/scratch/misc_software/mafft-linux64/mafft.bat --auto msa_${region}/haps_noredund.txt > msa_${region}/aln_results.txt
-/users/u233287/scratch/misc_software/mafft-linux64/mafft.bat --auto msa_${region}/haps.fa > msa_${region}/aln_results.txt
+/users/u233287/scratch/misc_software/mafft-linux64/mafft.bat --retree 2 --maxiterate 0 msa_${region}/haps.fa > msa_${region}/aln_results.txt
 #/users/u233287/scratch/misc_software/mafft-linux64/mafft.bat --globalpair --maxiterate 1000 msa_${region}/haps_noredund.txt > msa_${region}/aln_results.txt
 
 #./ProGraphMSA+TR.sh -o result_${region}.txt -R haps_noredund_${region}.txt
@@ -42,17 +45,18 @@ bash $DIR/mend_report.sh msa_${region}/variants.vcf.gz >> msa_${region}/report.t
 echo "Realigned" >> msa_${region}/report.txt
 bash $DIR/mend_report.sh msa_${region}/result.vcf.gz >> msa_${region}/report.txt
 
-python $DIR/get_reference.py $ref $region > msa_${region}/haps_final.fa
-for i in $(zgrep -m1 '#CHROM' $vcf | cut -f10-)
-do
-    samtools faidx $ref $region \
-        | bcftools consensus -H1 --sample $i msa_${region}/result.vcf.gz \
-        | python $DIR/fa_rename.py ${i}_1 >> msa_${region}/haps_final.fa
-    samtools faidx $ref $region \
-        | bcftools consensus -H2 --sample $i msa_${region}/result.vcf.gz \
-        | python $DIR/fa_rename.py ${i}_2 >> msa_${region}/haps_final.fa
-done
-
-echo "md5sums" $(sort msa_${region}/haps.fa | md5sum) $(sort msa_${region}/haps_final.fa | md5sum)
+# Turning off validation checking for now
+#python $DIR/get_reference.py $ref $region > msa_${region}/haps_final.fa
+#for i in $(zgrep -m1 '#CHROM' $vcf | cut -f10-)
+#do
+    #samtools faidx $ref $region \
+        #| bcftools consensus -H1 --sample $i msa_${region}/result.vcf.gz \
+        #| python $DIR/fa_rename.py ${i}_1 >> msa_${region}/haps_final.fa
+    #samtools faidx $ref $region \
+        #| bcftools consensus -H2 --sample $i msa_${region}/result.vcf.gz \
+        #| python $DIR/fa_rename.py ${i}_2 >> msa_${region}/haps_final.fa
+#done
+#
+#echo "md5sums" $(sort msa_${region}/haps.fa | md5sum) $(sort msa_${region}/haps_final.fa | md5sum)
 
 

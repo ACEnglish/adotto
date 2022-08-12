@@ -89,3 +89,27 @@ So, 3.81% of the genome which the v0.2 TR regions cover contains
 - 45.2% of all variants by bases effected
 - 75.5% of SVs by count
 - 47.0% of SVs by bases effected
+
+
+Question 3
+==========
+Can we find expansions/contractions of the tr_annotations inside the variants?
+
+The `filtered_variants_to_regions.txt` is now our new version of the tr_regions.bed. We'll use that to repeat the
+'Defining Repeats' steps described in `../README.md`
+
+
+```bash
+samtools faidx -r <(zcat tr_regions.bed.gz | awk '{print $1 ":" $2 "-" $3}')
+~/scratch/insertion_ref/msru/data/reference/grch38/GRCh38_1kg_mainchrs.fa > tr_regions.fasta
+trf409.linux64 data/tr_regions.fasta 3 7 7 80 5 40 500 -h -ngs > data/grch38.tandemrepeatfinder.txt
+```
+
+Then run TRF on the reference sequence of regions:
+```bash
+trf409.linux64 data/tr_regions.fasta 3 7 7 80 5 5 500 -h -ngs > data/grch38.tandemrepeatfinder.txt
+```
+
+Because we're going to be using the variants to filter these repeat annotations, we lower the min-score from 5 to 40
+with the idea being we're more interested in sensitivity.
+

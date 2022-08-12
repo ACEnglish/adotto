@@ -106,11 +106,12 @@ First, we make the header
 bcftools merge -m none hapo_merged/*.vcf.gz -o pVCFs/GRCh38.variants.header.vcf --print-header --force-samples
 ```
 Our run had redundant sample names which were manually altered inside of the output header e.g. NA24385 is assembled by
-both eichler and li, therefor the li was renamed in the new header li:NA24385.
+both eichler and li, therefore the li was renamed in the new header li:NA24385.
 
 Next, we merge the vcfs
 ```bash
-bcftools merge -m none hapo_merged/*.vcf.gz --use-header pVCFs/GRCh38.variants.header.vcf | bcftools view -S pVCFs/sample_order.txt -o pVCFs/GRCh38.variants.vcf.gz -O z
+bcftools merge -m none hapo_merged/*.vcf.gz --use-header pVCFs/GRCh38.variants.header.vcf \
+	| bcftools view -S pVCFs/sample_order.txt -o pVCFs/GRCh38.variants.vcf.gz -O z
 ```
 The sample_order.txt is just the list of the sample names so that we can control their order in the pVCF.
 

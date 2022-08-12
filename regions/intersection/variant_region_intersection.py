@@ -28,20 +28,21 @@ def main(in_bed, in_vcf, out_name):
     variants = pysam.VariantFile(in_vcf)
     with open(f"counts_{out_name}", 'w') as fout:
         for line in optional_compressed_fh(in_bed):
-            chrom, start, end = line.strip().split('\t')[:3]
+            line = line.strip()
+            chrom, start, end = line.split('\t')[:3]
             start = int(start)
             end = int(end)
             cnt = 0
             bases = 0
             for i in variants.fetch(chrom, int(start), int(end)):
                 # check only svs.. take this out for core analysis but keep in for extra analysis
-                if 'SVLEN' not in i.info or i.info["SVLEN"] < 50:
-                    continue
+                #if 'SVLEN' not in i.info or i.info["SVLEN"] < 50:
+                    #continue
                 vs, ve = truvari.entry_boundaries(i)
                 if start <= vs and ve <= end:
                     cnt += 1
                     bases += truvari.entry_size(i)
-            fout.write(f"{chrom}\t{start}\t{end}\t{cnt}\t{bases}\n")
+            fout.write(f"{line}\t{cnt}\t{bases}\n")
     data = pd.read_csv(f"counts_{out_name}", sep='\t', header=None, names=['chrom', 'start', 'end', 'num_vars', 'num_bases'])
     print("statistic\tcount\tpercent")
 

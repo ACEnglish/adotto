@@ -41,10 +41,6 @@ for entry in vcf:
         if sample + '.1' not in dn_pos_coverage:
             logging.warning("missing dn %s at %s:%d.1", sample, entry.chrom, entry.start)
 
-        if entry.samples[sample]["FT"] != '.':
-            # Trust the earlier step got the coverage right
-            continue
-        
         u_cov1 = int(up_pos_coverage[sample + '.0'])
         u_cov2 = int(up_pos_coverage[sample + '.1'])
         d_cov1 = int(dn_pos_coverage[sample + '.0'])
