@@ -23,3 +23,33 @@ A Project-level VCF is created per-reference. Currently, only GRCh38 autosomes +
     * [Citation](https://scholar.google.com/scholar_lookup?author=P+Ebert&author=PA+Audano&author=Q+Zhu&author=B+Rodriguez-Martin&author=D+Porubsky&author=MJ+Bonder&title=Haplotype-resolved+diverse+human+genomes+and+integrated+analysis+of+structural+variation&publication_year=2021&journal=Science&volume=372)
 * Files provided per-chromosome as compressed binary VCF `.bcf.gz`
 * To reduce file-size, FORMAT/FT field shortened to a single letter P[ass]|F[ail] and FORMAT/BPDP removed
+
+### Paths:
+Since the variants were uploaded per-chromosome, direct links to each of the files are provided below.
+
+```
+https://zenodo.org/record/6975244/files/adotto_variants.grch38.sqoff.chr1.bcf.gz?download=1
+https://zenodo.org/record/6975244/files/adotto_variants.grch38.sqoff.chr2.bcf.gz?download=1
+https://zenodo.org/record/6975244/files/adotto_variants.grch38.sqoff.chr3.bcf.gz?download=1
+https://zenodo.org/record/6975244/files/adotto_variants.grch38.sqoff.chr4.bcf.gz?download=1
+https://zenodo.org/record/6975244/files/adotto_variants.grch38.sqoff.chr5.bcf.gz?download=1
+https://zenodo.org/record/6975244/files/adotto_variants.grch38.sqoff.chr6.bcf.gz?download=1
+https://zenodo.org/record/6975244/files/adotto_variants.grch38.sqoff.chr7.bcf.gz?download=1
+https://zenodo.org/record/6975244/files/adotto_variants.grch38.sqoff.chr8.bcf.gz?download=1
+https://zenodo.org/record/6975244/files/adotto_variants.grch38.sqoff.chr9.bcf.gz?download=1
+https://zenodo.org/record/6975244/files/adotto_variants.grch38.sqoff.chr10.bcf.gz?download=1
+https://zenodo.org/record/6975244/files/adotto_variants.grch38.sqoff.chr11.bcf.gz?download=1
+https://zenodo.org/record/6975244/files/adotto_variants.grch38.sqoff.chr12.bcf.gz?download=1
+https://zenodo.org/record/6975244/files/adotto_variants.grch38.sqoff.chr13.bcf.gz?download=1
+https://zenodo.org/record/6975244/files/adotto_variants.grch38.sqoff.chr14.bcf.gz?download=1
+https://zenodo.org/record/6975244/files/adotto_variants.grch38.sqoff.chr15.bcf.gz?download=1
+https://zenodo.org/record/6975244/files/adotto_variants.grch38.sqoff.chr16.bcf.gz?download=1
+https://zenodo.org/record/6975244/files/adotto_variants.grch38.sqoff.chr17.bcf.gz?download=1
+https://zenodo.org/record/6975244/files/adotto_variants.grch38.sqoff.chr18.bcf.gz?download=1
+https://zenodo.org/record/6975244/files/adotto_variants.grch38.sqoff.chr19.bcf.gz?download=1
+https://zenodo.org/record/6975244/files/adotto_variants.grch38.sqoff.chr20.bcf.gz?download=1
+https://zenodo.org/record/6975244/files/adotto_variants.grch38.sqoff.chr21.bcf.gz?download=1
+https://zenodo.org/record/6975244/files/adotto_variants.grch38.sqoff.chr22.bcf.gz?download=1
+https://zenodo.org/record/6975244/files/adotto_variants.grch38.sqoff.chrX.bcf.gz?download=1
+https://zenodo.org/record/6975244/files/adotto_variants.grch38.sqoff.chrY.bcf.gz?download=1
+```
