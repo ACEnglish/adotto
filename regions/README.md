@@ -119,7 +119,31 @@ bcftools view -r chr:start-end some.vcf.gz # Query variants
 Note `samtools faidx` is not the same coordinate system as `tabix`. But the bed files are 0-based and vcfs are 1-based,
 both half-open(?).
 
-Next steps
-==========
+Variants
+========
 After creating variants, go to `intersection/` to use the variants to perform more filtering and analysis on the
 tr_regions/annotations.
+
+Creating the final annotation
+=============================
+As of right now, we have tr regions (simple chr:start-end) and annotations (coordinates + other info). Since there can
+be multiple annotations per-region, it makes sense to combine these two files into one to facilitate analysis. We'll
+design this file for use with `truvari anno trf`, but it can be adopted to other uses. The final file format will be a
+tab-delimited file with columns:
+
+* chrom - tr_region chromosome
+* start - tr_region 0-based start position
+* end - tr_region 0-based end position
+* annos - json of annotations
+
+The json of annotations will be a list of dicts with key:values listed above in "Defining Repeats".
+
+To create this file, simply run:
+
+```bash
+python scripts/tr_reganno_maker.py intersection/data/tr_regions.bed intersection/data/tr_annotations.bed.gz \
+    | bedtools sort -i - | bgzip > adotto_TRannotations_v0.2.bed.gz
+```
+
+The tr_regions can be `.bed` or `.bed.gz` but the tr_annotations need to be `.bed.gz` with a `.tbi` index.
+

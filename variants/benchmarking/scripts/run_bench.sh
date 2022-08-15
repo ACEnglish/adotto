@@ -10,6 +10,8 @@ comp_vcfs[eichler]=/users/u233287/scratch/code/adotto/variants/benchmarking/inpu
 bdir=/users/u233287/scratch/code/adotto/variants/benchmarking/
 thfa_vcf=$bdir/truthsets/HPRC-cur.20211005-align2-GRCh38.dip.singlealleles.vcf.gz
 thfa_bed=$bdir/truthsets/HPRC-cur.20211005-align2-GRCh38.dip.bed
+thfa_sm_bed=$bdir/truthsets/temp_hc_regions/GRCh38_HG2-HPRC-20211005_dipcall-z2k.smallvar.benchmark.bed
+thfa_lg_bed=$bdir/truthsets/temp_hc_regions/GRCh38_HG2-HPRC-20211005_dipcall-z2k.SV.benchmark.bed
 cmrg_vcf=$bdir/truthsets/HG002_GRCh38_CMRG_SV_v1.00.vcf.gz
 cmrg_bed=$bdir/truthsets/HG002_GRCh38_CMRG_SV_v1.00.bed
 
@@ -21,13 +23,13 @@ mkdir -p results/
 for samp_name in "${!comp_vcfs[@]}"
 do
     m_vcf="${comp_vcfs[$samp_name]}"
-    #$rtg vcfeval -t $rtg_ref --squash-ploidy -e $cmrg_sm_bed \
-                 #-b $cmrg_sm_vcf -c $m_vcf -o results/rtg_cmrg_${samp_name}
-    #$rtg vcfeval -t $rtg_ref --squash-ploidy -e $thfa_bed \
-                 #-b $thfa_ma_vcf -c $m_vcf -o results/rtg_thfa_${samp_name}
+    $rtg vcfeval -t $rtg_ref --squash-ploidy -e $cmrg_sm_bed \
+                 -b $cmrg_sm_vcf -c $m_vcf -o results/rtg_cmrg_${samp_name}
+    $rtg vcfeval -t $rtg_ref --squash-ploidy -e $thfa_sm_bed \
+                 -b $thfa_vcf -c $m_vcf -o results/rtg_thfa_${samp_name}
 
     truvari bench -b $cmrg_vcf -c $m_vcf -f $ref --includebed $cmrg_bed \
                   --passonly -o results/truvari_cmrg_${samp_name}
-    truvari bench -b $thfa_vcf -c $m_vcf -f $ref --includebed $thfa_bed \
+    truvari bench -b $thfa_vcf -c $m_vcf -f $ref --includebed $thfa_lg_bed \
                   --passonly -o results/truvari_thfa_${samp_name}
 done

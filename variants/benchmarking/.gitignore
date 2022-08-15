@@ -1,4 +1,5 @@
 inputs/merged.vcf.gz
+inputs/merged.vcf.gz.tbi
 inputs/GRCh38.variants.sqoff.vcf.gz
 inputs/HG002_comp.vcf.gz
 inputs/HG002_comp.vcf.gz.tbi
