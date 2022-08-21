@@ -28,8 +28,11 @@ do
     $rtg vcfeval -t $rtg_ref --squash-ploidy -e $thfa_sm_bed \
                  -b $thfa_vcf -c $m_vcf -o results/rtg_thfa_${samp_name}
 
+    $rtg vcfeval -t $rtg_ref --squash-ploidy -e $thfa_sm_bed \
+                 -b $thfa_ma_vcf -c $m_vcf -o results/rtg_thfama_${samp_name}
+
     truvari bench -b $cmrg_vcf -c $m_vcf -f $ref --includebed $cmrg_bed \
-                  --passonly -o results/truvari_cmrg_${samp_name}
+                  --passonly --unroll -o results/truvari_cmrg_${samp_name}
     truvari bench -b $thfa_vcf -c $m_vcf -f $ref --includebed $thfa_lg_bed \
-                  --passonly -o results/truvari_thfa_${samp_name}
+                  --passonly --unroll -o results/truvari_thfa_${samp_name}
 done
