@@ -13,20 +13,18 @@ Much simpler and much smaller data
 
 ### File Structure:
 Columns:
-** chrom - chromosome of TR region
-** start - 0-based start position of TR region
-** end - 0-based end position of TR region
-** annos - Json of TRF annotated repeats
-
-The json annos are a list of dicts with structure:
-** chrom - chromosome
-** start - start position of the repeat
-** end - end position of the repeat
-** period - period size of the repeat
-** copies - number of copes of the repeat in the reference
-** score - alignment score
-** entropy - entropy measure based on percent composition
-** repeat - motif of the repeat
+* chrom - chromosome of TR region
+* start - 0-based start position of TR region
+* end - 0-based end position of TR region
+* annos - Json containing a list of TRF annotated repeats with structure:
+  * chrom - chromosome
+  * start - start position of the repeat
+  * end - end position of the repeat
+  * period - period size of the repeat
+  * copies - number of copes of the repeat in the reference
+  * score - alignment score
+  * entropy - entropy measure based on percent composition
+  * repeat - motif of the repeat
 
 Example:
 ```
