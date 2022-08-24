@@ -36,7 +36,7 @@ Inputs and results are tracked and versioned using [zenodo.org](zenodo.org)
 | Dataset | Zenodo | Current Version | Details |
 | ------- | ------ | --------------- | ------- |
 | Regions | [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.7013709.svg)](https://doi.org/10.5281/zenodo.7013709) | v0.2 | [Link](regions/DataDescription.md) | 
-| Variants | [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.6975244.svg)](https://doi.org/10.5281/zenodo.6975244) | v0.1 | [Link](variants/DataDescriptino.md) |
+| Variants | [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.6975244.svg)](https://doi.org/10.5281/zenodo.6975244) | v0.1 | [Link](variants/DataDescription.md) |
 
 
 Progress
