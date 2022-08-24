@@ -1,6 +1,8 @@
 ref=$1
 vcf=$2
 region=$3
+# Number of bases up/down stream to add to consensus sequence (without variants)
+buffer=100
 #ref=/users/u233287/scratch/insertion_ref/msru/data/reference/grch38/GRCh38_1kg_mainchrs.fa
 #vcf=/users/u233287/scratch/insertion_ref/msru/data/inter_merge/grch38/exact/exact.vcf.gz
 #vcf=/users/u233287/scratch/code/adotto/pVCFs/GRCh38.variants.squareoff.vcf.gz
@@ -11,20 +13,30 @@ DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 echo "MSA realignment of region" $region
 mkdir -p msa_$region
 
-#bcftools norm -m - -c s -f $ref -r $region $vcf > msa_${region}/variants.vcf
-bcftools view -r $region $vcf \
+read chr st ed <<< $(echo $region | sed "s/[:-]/\t/g")
+st=$(expr $st - $buffer)
+ed=$(expr $ed + $buffer)
+expand_region=${chr}:${st}-${ed}
+
+echo $expand_region
+# -s here
+bcftools view -c 1 -r $region $vcf \
     | bcftools +fill-from-fasta /dev/stdin -- -c REF -f $ref \
     | bgzip > msa_${region}/variants.vcf.gz
 
 tabix msa_${region}/variants.vcf.gz
 
-python $DIR/get_reference.py $ref $region > msa_${region}/haps.fa
-for i in $(bcftools view -h $vcf | grep -m1 '#CHROM' | cut -f10-)
+python $DIR/get_reference.py $ref $expand_region > msa_${region}/haps.fa
+for i in $(bcftools view -h msa_${region}/variants.vcf.gz | grep -m1 '#CHROM' | cut -f10-)
 do
-    samtools faidx $ref $region | bcftools consensus -H1 --sample $i $vcf | python $DIR/fa_rename.py ${i}_1 >> msa_${region}/haps.fa
-    samtools faidx $ref $region | bcftools consensus -H2 --sample $i $vcf | python $DIR/fa_rename.py ${i}_2 >> msa_${region}/haps.fa
+    samtools faidx $ref $expand_region \
+        | bcftools consensus -H1 --sample $i msa_${region}/variants.vcf.gz \
+        | python $DIR/fa_rename.py ${i}_1 >> msa_${region}/haps.fa
+    samtools faidx $ref $expand_region \
+        | bcftools consensus -H2 --sample $i msa_${region}/variants.vcf.gz \
+        | python $DIR/fa_rename.py ${i}_2 >> msa_${region}/haps.fa
 done
-python $DIR/remove_redundant.py msa_${region}/haps.fa > msa_${region}/haps_noredund.txt
+#python $DIR/remove_redundant.py msa_${region}/haps.fa > msa_${region}/haps_noredund.txt
 
 
 #/users/u233287/scratch/misc_software/mafft-linux64/mafft.bat --auto msa_${region}/haps_noredund.txt > msa_${region}/aln_results.txt
