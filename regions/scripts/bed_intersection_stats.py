@@ -28,8 +28,8 @@ def do_intersection(a, b, ro=None):
     return data
 
 if __name__ == '__main__':
-    tr_bed = 'data/tr_annotated.bed'
-    sources = ['baylor', 'giab', 'pacbio', 'ucsd1', 'ucsd2']
+    tr_bed = 'data/tr_annotated.bed.gz'
+    sources = ['baylor', 'giab', 'pacbio', 'ucsd1', 'ucsd2', 'usc', 'pbsv', 'trgt']
     parts = []
     truvari.setup_logging()
     for i in sources:

@@ -1,4 +1,16 @@
 # Versions:
+
+## v0.3 - More Regions
+
+### CHANGES:
+* Added new annotations sources from:
+  * [TRGT](https://github.com/PacificBiosciences/trgt/tree/main/repeats) - Both full regions and pathogenic
+  * [pbsv](https://github.com/PacificBiosciences/pbsv/blob/master/annotations/human_GRCh38_no_alt_analysis_set.trf.bed)
+  * [Vamos](https://zenodo.org/record/7155334/)
+* Same File structure as v0.2..?
+
+KnownPathogenic name - Gene Name (could be non) Gene feature (intron/exon/etc)
+
 ## v0.2 - Useable version
 (Click the badge to go to the download page)  
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.7013709.svg)](https://doi.org/10.5281/zenodo.7013709)

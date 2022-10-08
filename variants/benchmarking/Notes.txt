@@ -1,0 +1,18 @@
+0) Original Region Definitions
+
+1) Combined SV/Small
+Merge the bed files and run over just the small single VCF
+
+-> scripts/experiment2.sh
+-> cmrg_svsmall/
+
+2) Looking at the entire genes 
+
+-> scripts/experiment2.sh
+-> cmrg_full/
+
+3) And inside of experiment2 I want to add the phab stuff
+
+
+2df to get the data organized
+

@@ -25,16 +25,18 @@ This creates two files:
 
 And reports:
 ```
-statistic       count   percent
-total regions   2232565 1
-no variant      448124  0.2007
-only a SNP      372144  0.1667
-only SNPs       474209  0.2124
-remaining       938088  0.4202
+		v0.1		v0.3-dev
+statistic       count   percent	count   percent
+total regions   2232565 1	2170271 1
+no variant      448124  0.2007	431781  0.1990
+only a SNP      372144  0.1667	112869  0.0520
+only SNPs       474209  0.2124	163636  0.0754
+remaining       938088  0.4202	1461985 0.6736
 ```
 
 Let's repeat this with the annotations we made previously
 ```
+		v0.1		v0.3-dev
 statistic       count   percent
 total regions   3298925 1
 no variant      1600118 0.4850
@@ -45,6 +47,7 @@ remaining       803695  0.2436
 
 And again with the unannotated regions
 ```
+		v0.1		v0.3-dev
 statistic       count   percent
 total regions   439538  1
 no variant      128123  0.2915
@@ -102,7 +105,6 @@ The `filtered_variants_to_regions.txt` is now our new version of the tr_regions.
 ```bash
 samtools faidx -r <(zcat tr_regions.bed.gz | awk '{print $1 ":" $2 "-" $3}')
 ~/scratch/insertion_ref/msru/data/reference/grch38/GRCh38_1kg_mainchrs.fa > tr_regions.fasta
-trf409.linux64 data/tr_regions.fasta 3 7 7 80 5 40 500 -h -ngs > data/grch38.tandemrepeatfinder.txt
 ```
 
 Then run TRF on the reference sequence of regions:
@@ -110,6 +112,6 @@ Then run TRF on the reference sequence of regions:
 trf409.linux64 data/tr_regions.fasta 3 7 7 80 5 5 500 -h -ngs > data/grch38.tandemrepeatfinder.txt
 ```
 
-Because we're going to be using the variants to filter these repeat annotations, we lower the min-score from 5 to 40
+Because we're going to be using the variants to filter these repeat annotations, we lower the min-score to 5 from 40
 with the idea being we're more interested in sensitivity.
 

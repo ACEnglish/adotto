@@ -27,10 +27,10 @@ It also creates a `merging_stats.json` with a simple summary statement.
 
 Consolidating bed files
 =======================
-Next, the bed files are merged together to make the grand union using `data/mk_merge_grand.sh ref.genome`. This is almost the same as
-the component parts' `mk_merge.sh`. However, a ref.genome file needs to be provided (just `<chromName><TAB><chromSize>`) 
-This script creates `data/merged.bed.gz` as well as a `data/merged.slop25.bed.gz` The slop bed is a remerge of the
-`merged.bed.gz` after inflating all the regions by 50bp (25bp on each end).
+Next, the bed files are merged together to make the grand union using `data/mk_merge_grand.sh ref.genome`. This 
+is almost the same as the component parts' `mk_merge.sh`. However, a ref.genome file needs to be provided (just 
+`<chromName><TAB><chromSize>`)  This script creates `data/merged.bed.gz` as well as a `data/merged.slop25.bed.gz` 
+The slop bed is a remerge of the `merged.bed.gz` after inflating all the regions by 50bp (25bp on each end).
 
 
 Reference Gaps
@@ -53,7 +53,7 @@ python scripts/consolidate_stats.py > data/region_stats.txt
 Defining Repeats
 ================
 At this point, we have broad regions where we expect to find tandem-repeats. Now we want to actually annotate the 
-tandem repeat motifs, as well as their exact positions and their copy nmber in the reference.
+tandem repeat motifs, as well as their exact positions and their copy number in the reference.
 
 * chrom - chromosome
 * start - start position of the repeat
@@ -67,7 +67,7 @@ tandem repeat motifs, as well as their exact positions and their copy nmber in t
 To do this, we'll start by running TRF on the regions. First, we extract the sequences from the regions
 
 ```bash
-samtools faidx -r <(zcat tr_regions.bed.gz | awk '{print $1 ":" $2 "-" $3}')
+samtools faidx -r <(zcat tr_regions.bed.gz | awk '{print $1 ":" $2 "-" $3}') \
 ~/scratch/insertion_ref/msru/data/reference/grch38/GRCh38_1kg_mainchrs.fa > tr_regions.fasta
 ```
 
@@ -126,6 +126,9 @@ tr_regions/annotations.
 
 Creating the final annotation
 =============================
+
+This is only relevant for v0.1. Go to `intersection/` for v0.2+
+
 As of right now, we have tr regions (simple chr:start-end) and annotations (coordinates + other info). Since there can
 be multiple annotations per-region, it makes sense to combine these two files into one to facilitate analysis. We'll
 design this file for use with `truvari anno trf`, but it can be adopted to other uses. The final file format will be a
