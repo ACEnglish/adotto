@@ -20,3 +20,6 @@ data/tr_annotated.jl
 data/tr_regions.fasta.fai
 data/trf_annos_df.jl
 data/tr_regions.bed.gz
+data/usc/
+data/pbsv/
+data/trgt/

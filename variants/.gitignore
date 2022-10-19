@@ -1,1 +1,15 @@
 data/adotto_variants.grch38.sqoff.vcf.gz
+benchmarking/cmrg_comb/
+benchmarking/cmrg_region_phab/
+benchmarking/cmrg_svsmall/
+benchmarking/delme.txt
+benchmarking/no_bed/
+benchmarking/phab.raw.jl
+benchmarking/redos.bed
+benchmarking/redos/
+benchmarking/test/
+benchmarking/trash/
+benchmarking/x.sh
+data/adotto_variants.grch38.sqoff.vcf.gz.tbi
+data/delme/
+x.sh

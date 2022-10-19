@@ -33,7 +33,8 @@ def main(in_bed, in_vcf, out_name):
             start = int(start)
             end = int(end)
             cnt = 0
-            bases = 0
+            snps = 0
+            non_snp = 0
             for i in variants.fetch(chrom, int(start), int(end)):
                 # check only svs.. take this out for core analysis but keep in for extra analysis
                 #if 'SVLEN' not in i.info or i.info["SVLEN"] < 50:
@@ -41,9 +42,12 @@ def main(in_bed, in_vcf, out_name):
                 vs, ve = truvari.entry_boundaries(i)
                 if start <= vs and ve <= end:
                     cnt += 1
-                    bases += truvari.entry_size(i)
-            fout.write(f"{line}\t{cnt}\t{bases}\n")
-    data = pd.read_csv(f"counts_{out_name}", sep='\t', header=None, names=['chrom', 'start', 'end', 'num_vars', 'num_bases'])
+                    if truvari.entry_variant_type(i) != truvari.SV.SNP:
+                        non_snp += 1
+                    else:
+                        snps += 1
+            fout.write(f"{line}\t{cnt}\t{snps}\t{non_snp}\n")
+    data = pd.read_csv(f"counts_{out_name}", sep='\t', header=None, names=['chrom', 'start', 'end', 'num_vars', 'snps', 'non_snp'])
     print("statistic\tcount\tpercent")
 
     tot = len(data)
@@ -53,11 +57,11 @@ def main(in_bed, in_vcf, out_name):
     i = no_var.sum()
     print("no variant\t%d\t%.4f" % (i, i / tot))
 
-    single_snp = (data['num_vars'] == 1) & (data['num_bases'] == 1)
+    single_snp = (data['snps'] == 1) & (data['non_snp'] == 0)
     i = single_snp.sum()
     print("only a SNP\t%d\t%.4f" % (i, i / tot))
 
-    only_snps = (data['num_vars'] > 1) & (data['num_vars'] == data['num_bases'])
+    only_snps = (data['snps'] > 1) & (data['non_snp'] == 0)
     i = only_snps.sum()
     print("only SNPs\t%d\t%.4f" % (i, i / tot))
 

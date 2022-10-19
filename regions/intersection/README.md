@@ -20,8 +20,8 @@ Note, to prevent large SVs which span regions from altering our counts, the vari
 within the region's boundaries.
 
 This creates two files:
-- `counts_variants_to_regions.txt` - input regions.bed entry annotated with number of variants and number of variant bases
-- `filtered_variants_to_regions.txt` - the counts file filtered to only regions containing any non-SNP variants
+- `counts_<output>` - input region entries annotated with number of variants and number of variant bases
+- `filtered_<output>` - the counts file filtered to only regions containing non-SNP variants
 
 And reports:
 ```
@@ -29,34 +29,39 @@ And reports:
 statistic       count   percent	count   percent
 total regions   2232565 1	2170271 1
 no variant      448124  0.2007	431781  0.1990
-only a SNP      372144  0.1667	112869  0.0520
-only SNPs       474209  0.2124	163636  0.0754
-remaining       938088  0.4202	1461985 0.6736
+only a SNP      372144  0.1667	242294  0.1116
+only SNPs       474209  0.2124	135780  0.0626
+remaining       938088  0.4202	1360416 0.6268
 ```
 
 Let's repeat this with the annotations we made previously
 ```
 		v0.1		v0.3-dev
-statistic       count   percent
-total regions   3298925 1
-no variant      1600118 0.4850
-only a SNP      505514  0.1532
-only SNPs       389598  0.1181
-remaining       803695  0.2436
+statistic       count   percent	count   percent
+total regions   3298925 1	3503876 1
+no variant      1600118 0.4850	1716435 0.4899
+only a SNP      505514  0.1532	332505  0.0949
+only SNPs       389598  0.1181	160201  0.0457
+remaining       803695  0.2436	1294735 0.3695
 ```
 
 And again with the unannotated regions
 ```
 		v0.1		v0.3-dev
-statistic       count   percent
-total regions   439538  1
-no variant      128123  0.2915
-only a SNP      102119  0.2323
-only SNPs       126488  0.2878
-remaining       82808   0.1884
+statistic       count   percent	count   percent
+total regions   439538  1	428642  1
+no variant      128123  0.2915	126221  0.2945
+only a SNP      102119  0.2323	61672   0.1439
+only SNPs       126488  0.2878	28007   0.0653
+remaining       82808   0.1884	212742  0.4963
 ```
 
 So it's interesting (promising) that our unannotated regions less frequently contain variants.
+
+v0.3-dev ... We have a lot more regions 'remaining' in the unannotated. I gotta figure out what's happening here.
+
+1. Adding these new regions (namely pbsv, trgt, and usc are expanding the boundaries. 
+Collect these stats for the first slide... Actually hold off at this point.
 
 Question 2:
 ===========
@@ -99,17 +104,17 @@ Question 3
 Can we find expansions/contractions of the tr_annotations inside the variants?
 
 The `filtered_variants_to_regions.txt` is now our new version of the tr_regions.bed. We'll use that to repeat the
-'Defining Repeats' steps described in `../README.md`
-
-
-```bash
-samtools faidx -r <(zcat tr_regions.bed.gz | awk '{print $1 ":" $2 "-" $3}')
-~/scratch/insertion_ref/msru/data/reference/grch38/GRCh38_1kg_mainchrs.fa > tr_regions.fasta
-```
-
+'Defining Repeats' steps described in `../README.md` 
 Then run TRF on the reference sequence of regions:
+
 ```bash
-trf409.linux64 data/tr_regions.fasta 3 7 7 80 5 5 500 -h -ngs > data/grch38.tandemrepeatfinder.txt
+samtools faidx -r <(cat filtered_variants_to_regions.txt | awk '{print $1 ":" $2 "-" $3}') \
+    ~/scratch/insertion_ref/msru/data/reference/grch38/GRCh38_1kg_mainchrs.fa > tr_regions.fasta
+trf409.linux64 tr_regions.fasta 3 7 7 80 5 5 500 -h -ngs > grch38.tandemrepeatfinder.txt
+python ../scripts/trf_reformatter.py grch38.tandemrepeatfinder.txt final_something
+bedtools sort -i final_something.bed | bgzip > final_something.bed.gz
+tabix final_something.bed.gz
+python ../scripts/tr_reganno_maker.py filtered_variants_to_regions.txt final_something.bed.gz > candidate_v0.3_anno.bed
 ```
 
 Because we're going to be using the variants to filter these repeat annotations, we lower the min-score to 5 from 40
