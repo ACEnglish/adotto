@@ -28,7 +28,7 @@ out = pysam.VariantFile("/dev/stdout", 'w', header=n_header)
 for entry in vcf:
     up_pos_coverage = cov.loc[[_ for _ in list(tree[entry.chrom][entry.pos])[0].data]]['cov']
     up_pos_coverage.index = [".".join(_.split('.')[:2]) for _ in up_pos_coverage.index]
-    dn_pos_coverage = cov.loc[[_ for _ in list(tree[entry.chrom][entry.pos])[0].data]]['cov']
+    dn_pos_coverage = cov.loc[[_ for _ in list(tree[entry.chrom][entry.stop])[0].data]]['cov']
     dn_pos_coverage.index = [".".join(_.split('.')[:2]) for _ in dn_pos_coverage.index]
 
     for sample in entry.samples:
@@ -41,11 +41,26 @@ for entry in vcf:
         if sample + '.1' not in dn_pos_coverage:
             logging.warning("missing dn %s at %s:%d.1", sample, entry.chrom, entry.start)
 
-        u_cov1 = int(up_pos_coverage[sample + '.0'])
-        u_cov2 = int(up_pos_coverage[sample + '.1'])
-        d_cov1 = int(dn_pos_coverage[sample + '.0'])
-        d_cov2 = int(dn_pos_coverage[sample + '.1'])
- 
+        try:
+            u_cov1 = int(up_pos_coverage[sample + '.0'])
+        except TypeError: # if a variant starts/ends exactly at a change in coverage for the sample
+            u_cov1 = int(up_pos_coverage[sample + '.0'].iloc[-1])
+
+        try:
+            u_cov2 = int(up_pos_coverage[sample + '.1'])
+        except TypeError:
+            u_cov2 = int(up_pos_coverage[sample + '.1'].iloc[-1])
+
+        try:
+            d_cov1 = int(dn_pos_coverage[sample + '.0'])
+        except TypeError:
+            d_cov1 = int(dn_pos_coverage[sample + '.0'].iloc[0])
+
+        try:
+            d_cov2 = int(dn_pos_coverage[sample + '.1'])
+        except TypeError:
+            d_cov2 = int(dn_pos_coverage[sample + '.1'].iloc[0]) 
+
         entry.samples[sample]["BPDP"] = [u_cov1, d_cov1, u_cov2, d_cov2]
         is_single1 = u_cov1 == 1 and d_cov1 == 1 
         is_single2 = u_cov2 == 1 and d_cov2 == 1
