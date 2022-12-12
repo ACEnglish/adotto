@@ -182,9 +182,9 @@ def simplify_region(annos):
             ret.extend(simplify_staggered(sub_region_annos))
     return ret
 
+BUFFER = 25
 def get_bounds(annos):
     # Get the boundaries of the annotations
-    BUFFER = 25
     start = min([_['start'] for _ in annos]) - BUFFER
     end = max([_['end'] for _ in annos]) + BUFFER
     return start, end
@@ -220,7 +220,7 @@ def pct_annotated(reg):
         m_tree.addi(i['start'], i['end'])
     m_tree.merge_overlaps()
     tot_anno = sum([_.end - _.begin for _ in m_tree])
-    return round(tot_anno / (reg['end'] - reg['start'] - 25) * 100)
+    return round(tot_anno / (reg['end'] - reg['start'] - (BUFFER * 2)) * 100)
 
 def write_region(reg):
     out_str = []
