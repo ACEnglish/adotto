@@ -150,3 +150,7 @@ python scripts/tr_reganno_maker.py intersection/data/tr_regions.bed intersection
 
 The tr_regions can be `.bed` or `.bed.gz` but the tr_annotations need to be `.bed.gz` with a `.tbi` index.
 
+Filtering
+=========
+removed 363237 regions from 1360416 for being homopolymer only or not having any annotations
+
