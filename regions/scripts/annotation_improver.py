@@ -17,15 +17,15 @@ Additionally, each annotation has the following fields populated:
   boundaries
 - iso - if an annotation was isolated and by itself. True or False. May be indicative of a 'cleaner' repeat
 """
+import sys
 import json
 import math
-import sys
 from functools import cmp_to_key
 
-from truvari.annotations.trf import iter_tr_regions
-from suffix_tree import Tree
+import pysam
+import truvari
 from intervaltree import IntervalTree
-import numpy as np
+from truvari.annotations.trf import iter_tr_regions
 
 """
 1. for each region
@@ -72,27 +72,6 @@ def get_subregions(annos):
         else:
             m_t = 'staggered'
         yield m_y, m_t
-
-def build_common_tree(all_strs):
-    """
-    Builds dict with key: repeat value: is part of the common substrings of the suffix tree
-    """
-    m_tree = Tree()
-
-    for i, j in enumerate(all_strs):
-        m_tree.add(i, j * 2)
-    common = []
-    #for C, path in sorted(m_tree.maximal_repeats()):
-    for k, length, path in m_tree.common_substrings():
-        cur_row = []
-        x = "".join([str(_) for _ in path])
-        for i in all_strs:
-            cur_row.append(i in x)
-        common.append(cur_row)
-    common = np.array(common)
-    is_keep = dict(zip(all_strs, common.any(axis=0)))
-    return is_keep
-
 
 def anno_sorter(a1, a2):
     if a1[0] > a2[0]:
@@ -203,16 +182,37 @@ def simplify_region(annos):
             ret.extend(simplify_staggered(sub_region_annos))
     return ret
 
+BUFFER = 25
 def get_bounds(annos):
     # Get the boundaries of the annotations
-    BUFFER = 25
     start = min([_['start'] for _ in annos]) - BUFFER
     end = max([_['end'] for _ in annos]) + BUFFER
     return start, end
 
-def annotate_purity(annos):
-    # TODO - I have this code somewhere
-    return 1
+def annotate_purity(reg):
+    seq = reference.fetch(reg['chrom'], reg['start'], reg['end'])
+    scores = []
+    for anno in reg["annos"]:
+        s_start = anno['start'] - reg['start']
+        s_end = anno['end'] - reg['start']
+        sub_seq = seq[s_start: s_end]
+        alt_seq = anno['repeat'] * int(math.floor(anno['copies']))
+        remain = int((anno['copies'] % 1) * len(anno))
+        alt_seq += anno['repeat'][:remain]
+        if len(alt_seq) + len(sub_seq) == 0:
+            print('what?')
+            print(reg)
+            print(anno)
+            print(s_start, s_end)
+            print(sub_seq)
+            print(alt_seq1)
+            print(alt_seq)
+            
+            assert False
+        score = truvari.seqsim(sub_seq, alt_seq) * 100
+        anno['purity'] = round(score)
+        scores.append(score)
+    return round(sum(scores) / len(scores))
 
 def pct_annotated(reg):
     m_tree = IntervalTree()
@@ -220,7 +220,7 @@ def pct_annotated(reg):
         m_tree.addi(i['start'], i['end'])
     m_tree.merge_overlaps()
     tot_anno = sum([_.end - _.begin for _ in m_tree])
-    return round(tot_anno / (reg['end'] - reg['start'] - 25), 3)
+    return round(tot_anno / (reg['end'] - reg['start'] - (BUFFER * 2)) * 100)
 
 def write_region(reg):
     out_str = []
@@ -232,6 +232,8 @@ def write_region(reg):
 
 if __name__ == '__main__':
     # need to do 
+    in_anno, in_ref = sys.argv[1:]
+    reference = pysam.FastaFile(in_ref)
     removed = 0
     total = 0
     for reg in iter_tr_regions("adotto_TRannotations_v0.3.bed.gz"):
@@ -245,11 +247,11 @@ if __name__ == '__main__':
             removed += 1
             continue
         reg['start'], reg['end'] = get_bounds(out_annos)
+        reg['annos'] = out_annos
         reg['n_filtered'] = in_anno_cnt - len(out_annos)
         reg['n_annos'] = len(out_annos)
         reg['n_subregions'] = len([_ for _ in get_subregions(out_annos)])
-        reg['mu_purity'] = annotate_purity(out_annos)
-        reg['annos'] = out_annos
+        reg['mu_purity'] = annotate_purity(reg)
         reg['pct_annotated'] = pct_annotated(reg)
         
         write_region(reg)
