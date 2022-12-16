@@ -344,12 +344,9 @@ class AnnoTree():
 
 if __name__ == '__main__':
     if len(sys.argv) == 1:
-        try:
-            for reg in iter_tr_regions("/dev/stdin"):
-                viz_region(reg)
-        except Exception:
-            for reg in iter_tr_regions_1("/dev/stdin"):
-                viz_region(reg)
+        #for reg in iter_tr_regions("/dev/stdin"):
+        for reg in iter_tr_regions_1("/dev/stdin"):
+            viz_region(reg)
         sys.exit(0)
     in_anno, in_ref, in_rep, patho, codis = sys.argv[1:]
 
