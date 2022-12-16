@@ -5,3 +5,4 @@ adotto_variants.grch38.sqoff.bcf.gz.csi
 anno_parts/
 annotated.variants.vcf.gz
 annotated.variants.vcf.gz.tbi
+pvcf_stats.jl
