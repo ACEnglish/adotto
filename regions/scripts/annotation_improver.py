@@ -518,12 +518,13 @@ if __name__ == '__main__':
             continue
 
         out_annos = simplify_region(non_hom)
-
+        # Consolidate overlap flag
         reg['ovl_flag'] = 0
         for i in out_annos:
             reg['ovl_flag'] |= i['ovl_flag']
         
-
+        # Do this before changing the coords because we look up by the key
+        reg['interspersed'] = get_interspersed(reg, repeats)
 
         # Buffer work
         first_start, last_end = get_bounds(out_annos)
@@ -540,7 +541,6 @@ if __name__ == '__main__':
         reg['pct_annotated'] = pct_annotated(reg, first_start, last_end)
 
         # Do it after we've update the positions
-        reg['interspersed'] = get_interspersed(reg, repeats)
         reg['patho'] = patho.get_annotation(reg)
         reg['codis'] = codis.get_annotation(reg)
 
