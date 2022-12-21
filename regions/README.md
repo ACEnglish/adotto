@@ -124,8 +124,8 @@ Variants
 After creating variants, go to `intersection/` to use the variants to perform more filtering and analysis on the
 tr_regions/annotations.
 
-Creating the final annotation
-=============================
+Creating the intermediate annotations
+=====================================
 
 This is only relevant for v0.1. Go to `intersection/` for v0.2+
 
@@ -150,7 +150,25 @@ python scripts/tr_reganno_maker.py intersection/data/tr_regions.bed intersection
 
 The tr_regions can be `.bed` or `.bed.gz` but the tr_annotations need to be `.bed.gz` with a `.tbi` index.
 
-Filtering
-=========
-removed 363237 regions from 1360416 for being homopolymer only or not having any annotations
+Creating RepeatMasker annotations
+=================================
+
+These regions may have 'contamination' from non-TR repeats which TRF will discover (e.g. tandem ALUs). Therefore, we
+next want to analyze the regions' sequences for non-TR repeats so that we can potentially filter them. We accomplish
+this by
+
+XYZABC
+
+Improving the annotation
+========================
+
+The current state of the intermediate TR regions lacks other useful information.
+We add them in by running 
+
+../scripts/annotation_improver.py
+TODO: Document what all this does
+
+This script removed 363237 regions from 1360416 for being homopolymer only or not having any annotations
+
+
 

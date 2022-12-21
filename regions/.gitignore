@@ -23,3 +23,11 @@ data/tr_regions.bed.gz
 data/usc/
 data/pbsv/
 data/trgt/
+annos/
+data/partial_repmask1.jl
+intersection/full_train.jl
+notebooks/adotto_v0.3_chr1_intersperse_contamination.bed
+notebooks/dis.pdf
+notebooks/join.pdf
+notebooks/test1.bed
+test/
