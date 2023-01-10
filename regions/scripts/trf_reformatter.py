@@ -73,14 +73,11 @@ def parse_trf_output(tr_fn):
 
 if __name__ == '__main__':
     #def parse_trf_output(fn):
-    data = []
     out_name = sys.argv[2]
-    for i in parse_trf_output(sys.argv[1]):
-        data.append(i)
     #temp while I figure out how to translate this
-    data = pd.DataFrame(data)
-    print(truvari.optimize_df_memory(data))
+    data = pd.DataFrame(parse_trf_output(sys.argv[1]))
+    #print(truvari.optimize_df_memory(data))
 
-    joblib.dump(data, out_name + '.jl', compress=5)
+    #joblib.dump(data, out_name + '.jl', compress=5)
     columns = ['chrom', 'start', 'end', 'period', 'copies', 'score', 'entropy', 'repeat']
     data[columns].to_csv(out_name + '.bed', sep='\t', index=False, header=False)

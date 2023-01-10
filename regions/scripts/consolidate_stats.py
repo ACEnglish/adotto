@@ -32,7 +32,7 @@ data/
 
 rows = []
 
-for source in ['baylor', 'giab', 'pacbio', 'ucsd1', 'ucsd2', 'usc', 'pbsv', 'trgt']:
+for source in ['baylor', 'giab', 'pacbio', 'ucsd1', 'ucsd2', 'usc', 'pbsv', 'trgt', 'abundant_pCGG']:
     spans = spans_sum_read(os.path.join(in_dir, source, 'input_spans.txt'))
     merge = merge_json_read(os.path.join(in_dir, source, 'merging_stats.json'))
     my_row = pd.DataFrame(pd.concat([spans, merge])).T

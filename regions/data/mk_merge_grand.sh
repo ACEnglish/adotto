@@ -23,7 +23,7 @@ zcat */merged.bed.gz \
     | bedtools merge \
     | ../scripts/merged_bed_filter.py \
     | bgzip > merged.bed.gz
-tabix merged.bed.gz
+tabix -f merged.bed.gz
 
 echo "Slop merge"
 bedtools slop -i merged.bed.gz -b 25 -g $genome \
@@ -32,7 +32,7 @@ bedtools slop -i merged.bed.gz -b 25 -g $genome \
     | bedtools merge \
     | ../scripts/merged_bed_filter.py slop \
     | bgzip > merged.slop25.bed.gz
-tabix merged.slop25.bed.gz
+tabix -f merged.slop25.bed.gz
 
 # Get final stats real quick
 zcat merged.slop25.bed.gz | ../scripts/bed_stats.py slop > /dev/null

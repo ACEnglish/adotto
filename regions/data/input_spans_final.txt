@@ -1,9 +1,9 @@
-count        2170271
-mean             139
-std              388
+count        2171789
+mean             141
+std              457
 min               60
 25%               66
-50%               78
+50%               79
 75%              106
 max            49984
-tot_len    303214305
+tot_len    308339807

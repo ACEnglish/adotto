@@ -73,7 +73,7 @@ samtools faidx -r <(zcat tr_regions.bed.gz | awk '{print $1 ":" $2 "-" $3}') \
 
 Then run TRF on the reference sequence of regions:
 ```bash
-trf409.linux64 data/tr_regions.fasta 3 7 7 80 5 40 500 -h -ngs > data/grch38.tandemrepeatfinder.txt
+trf409.linux64 data/tr_regions.fasta 3 7 7 80 5 5 500 -h -ngs > data/grch38.tandemrepeatfinder.txt
 ```
 
 TRF parsing
@@ -119,15 +119,9 @@ bcftools view -r chr:start-end some.vcf.gz # Query variants
 Note `samtools faidx` is not the same coordinate system as `tabix`. But the bed files are 0-based and vcfs are 1-based,
 both half-open(?).
 
-Variants
-========
-After creating variants, go to `intersection/` to use the variants to perform more filtering and analysis on the
-tr_regions/annotations.
 
 Creating the intermediate annotations
 =====================================
-
-This is only relevant for v0.1. Go to `intersection/` for v0.2+
 
 As of right now, we have tr regions (simple chr:start-end) and annotations (coordinates + other info). Since there can
 be multiple annotations per-region, it makes sense to combine these two files into one to facilitate analysis. We'll
@@ -145,10 +139,9 @@ To create this file, simply run:
 
 ```bash
 python scripts/tr_reganno_maker.py intersection/data/tr_regions.bed intersection/data/tr_annotations.bed.gz \
-    | bedtools sort -i - | bgzip > adotto_TRannotations_v0.2.bed.gz
+    | bedtools sort -i - | bgzip > candidate_v1.bed.gz
+tabix candidate_v1.bed.gz
 ```
-
-The tr_regions can be `.bed` or `.bed.gz` but the tr_annotations need to be `.bed.gz` with a `.tbi` index.
 
 Creating RepeatMasker annotations
 =================================
@@ -157,7 +150,19 @@ These regions may have 'contamination' from non-TR repeats which TRF will discov
 next want to analyze the regions' sequences for non-TR repeats so that we can potentially filter them. We accomplish
 this by
 
-XYZABC
+Run `scripts/fasta_splitter.py` on tr_regions.fasta, then RepeatMasker the parts
+```bash
+mkdir -p jobs
+for i in part*fasta
+do
+    
+    echo "#!/bin/bash" > jobs/${i}.sh
+    echo RepeatMasker -pa 16 -qq -e hmmer -species human \
+        -lcambig -nocut -div 50 -no_id -s $i >> jobs/${i}.sh
+done
+```
+Then make a simple to parse dataframe with `scripts/repmask_to_joblib.py`
+
 
 Improving the annotation
 ========================
@@ -165,10 +170,17 @@ Improving the annotation
 The current state of the intermediate TR regions lacks other useful information.
 We add them in by running 
 
-../scripts/annotation_improver.py
-TODO: Document what all this does
+```bash
+python scripts/annotation_improver.py \
+	data/candidate_v1.0.bed \
+	grch38.fasta \
+	repmask.jl \
+	pathorepeats.bed \
+	codisrepeats.bed
+	> adotto_TRregions_v1.0.bed
+```
 
-This script removed 363237 regions from 1360416 for being homopolymer only or not having any annotations
-
-
-
+Variants
+========
+After creating variants, go to `intersection/` to use the variants to perform more and analysis on the
+tr_regions/annotations

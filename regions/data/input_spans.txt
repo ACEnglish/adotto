@@ -1,4 +1,4 @@
-count        4781035
+count        4786800
 mean              89
 std              454
 min               10
@@ -6,4 +6,4 @@ min               10
 50%               32
 75%               55
 max            49946
-tot_len    429280575
+tot_len    429635634

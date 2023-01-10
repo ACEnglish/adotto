@@ -1,5 +1,48 @@
 # Versions:
 
+## v1.0
+(Click the badge to go to the download page)  
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.7521434.svg)](https://doi.org/10.5281/zenodo.7521434)
+
+### CHANGES: 
+* Removed homopolymer annotations
+* Simplified overlapping annotations
+* Added new columns that describe properties of the region 
+
+### File Structure:
+| Column        | Definition                                                                                     |
+|---------------|------------------------------------------------------------------------------------------------|
+| chr           | Chromosome of the region                                                                       |
+| start         | Start position of the region                                                                   |
+| end           | End position of the region                                                                     |
+| ovl_flag      | overlap categories of annotations inside the region                                            |
+| up_buff       | number of bases upstream of the first annotation's start that are non-TR sequence              |
+| dn_buff       | number of bases downstream of the last annotation's end that are non-TR sequence               |
+| hom_span      | number of bases of the region found to be homopolymer repeats                                  |
+| n_filtered    | number of annotations removed from the region                                                  |
+| n_annos       | number of annotations remaining in the region                                                  |
+| n_subregions  | number of subregions in the region                                                             |
+| mu_purity     | average purity of annotations in region                                                        |
+| pct_annotated | percent of the region's range (minus buffer) annotated                                         |
+| interspersed  | name of interspersed repeat class found within region by RepeatMasker v4.1.4                   |
+| patho         | name of gene affected by a pathogenic tandem repeat in region                                  |
+| codis         | name of CODIS site contained in region                                                         |
+| gene_flag     | gene features intersecting region (Enseml v105)                                                |
+| biotype       | comma separated gene biotypes intersecting region (Enseml v105)                                |
+| annos         | JSON of TRF annotations in the region (list of dicts with keys: motif, entropy, ovl_flag, etc) |
+
+The `annos` JSON is simple key:values of:
+* chrom - chromosome
+* start - start position of the repeat
+* end - end position of the repeat
+* period - period size of the repeat
+* copies - number of copes of the repeat in the reference
+* score - alignment score
+* entropy - entropy measure based on percent composition
+* motif - motif sequence of the repeat
+* purity - Sequence similarity of  `motif*copies` against annotation’s reference span
+
+
 ## v0.3 - More Regions
 (Click the badge to go to the download page)  
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.7226352.svg)](https://doi.org/10.5281/zenodo.7226352)
