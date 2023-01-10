@@ -35,18 +35,5 @@ Inputs and results are tracked and versioned using [zenodo.org](zenodo.org)
 
 | Dataset | Zenodo | Current Version | Details |
 | ------- | ------ | --------------- | ------- |
-| Regions | [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.7226352.svg)](https://doi.org/10.5281/zenodo.7226352)
- | v0.3 | [Link](regions/DataDescription.md) | 
+| Regions | [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.7521434.svg)](https://doi.org/10.5281/zenodo.7521434) | v1.0 | [Link](regions/DataDescription.md) | 
 | Variants | [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.6975244.svg)](https://doi.org/10.5281/zenodo.6975244) | v0.1 | [Link](variants/DataDescription.md) |
-
-
-Progress
-========
-Rough estimates of the progress for each analysis section.  Last updated  `Fri Jul 22 02:03:49 CDT 2022`
-| Step            |  %  |
-| --------------- | --- |
-| regions         | 85% |
-| variants        | 91% |
-| realignment     | 20% | 
-| bench creation  | 5%  |
-| benchmarking    | 0%  |
