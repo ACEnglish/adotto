@@ -1,0 +1,67 @@
+chrom	start	end	Locus	Motifs 1	Motifs 2	Repeat type	Region	Path. repeats	Inheritance mode	Disease
+chrX	148500631	148500691	AFF2	CCG	GCC	Standard	5'UTR	>=200	X-linked recessive	FRAXE mental retardation (FRAXE)
+chr2	100104799	100104824	AFF3		GCC		Intron			
+chrX	67545316	67545385	AR	CAG	GCA	Standard	Coding	>=40	X-linked recessive	Spinal and bulbar muscular atrophy (SBMA)
+chrX	25013649	25013698	ARX_1	GCN	GCG	Imperfect GCN	Coding	>=23,>=18	X-linked recessive	Developmental and epileptic encephalopathy-1 (DEE1)X-linked mental retardation with or without seizures (MRXARX)
+chrX	25013529	25013565	ARX_2	GCN		Imperfect GCN	Coding	>=20,>=20,>=23	X-linked recessive	Developmental and epileptic encephalopathy-1 (DEE1)Partington syndrome (PRTS)X-linked mental retardation with or without seizures (MRXARX)
+chr12	6936716	6936773	ATN1	CAG	CAG	Standard	Coding	>=49	Autosomal dominant	Dentatorubral-pallidoluysian atrophy (DRPLA)
+chr6	16327633	16327723	ATXN1	CAG	TGC	Standard	Coding	>=39	Autosomal dominant	Spinocerebellar ataxia 1 (SCA1)
+chr22	45795354	45795424	ATXN10	ATTCT	ATTCT	Standard	Intron	>=800	Autosomal dominant	Spinocerebellar ataxia 10 (SCA10)
+chr12	111598949	111599018	ATXN2	CAG	GCT	Standard	Coding	>=35	Autosomal dominant	Spinocerebellar ataxia 2 (SCA2)
+chr14	92071009	92071042	ATXN3	CAG	GCT	Standard	Coding	>=56	Autosomal dominant	Spinocerebellar ataxia 3 (SCA3)
+chr3	63912684	63912726	ATXN7	CAG	GCA,GCC	Standard	Coding	>=36	Autosomal dominant	Spinocerebellar ataxia 7 (SCA7)
+chr13	70139353	70139428	ATXN8	CTG	CTA,CTG	Standard	3' UTR	>=80		Spinocerebellar ataxia 8 (SCA8)
+chr16	66490398	66490467	BEAN1	TGGAA	TGGAA,TAAAA	Nested	Intron	>=500	Autosomal dominant	Spinocerebellar ataxia 31 (SCA31)
+chr11	66744821	66744850	C11ORF80		GCG					
+chr9	27573528	27573546	C9ORF72	GGGGCC	GGCCCC	Standard	Intron	>=24	Autosomal dominant	Amyotrophic lateral sclerosis and/or frontotemporal dementia (FTDALS1)
+chr19	13207858	13207897	CACNA1A	CAG	CTG	Standard	Coding	>=21	Autosomal dominant	Spinocerebellar ataxia 6 (SCA6)
+chr11	119206289	119206322	CBL	CCG	CGG	Standard	5' UTR	>=101		Jacobsen syndrome (JBS)
+chr3	129172576	129172732	CNBP	CCTG	CAGG,CAGA,CA	Standard	Intron	>=55	Autosomal dominant	Myotonic dystrophy 2 (DM2)
+chr19	18786034	18786050	COMP	GAC	GTC	Standard	Coding	>=6,>=7	Autosomal dominant	Multiple epiphyseal dysplasia (EDM1)Pseudoachondroplasia (PSACH)
+chr21	43776443	43776479	CSTB		CGCGGGGCGGGG		Promoter	>=30	Autosomal recessive	Epilepsy Progressive Myoclonic
+chr1	57367043	57367119	DAB1	ATTTC	AAAAT,GAAAT,AAAAT	Nested	Intron	>=31	Autosomal dominant	Spinocerebellar ataxia 37 (SCA37)
+chr12	50505001	50505022	DIP2B	CGG	GGC	Standard	5' UTR	>=273	Autosomal dominant	Mental retardation, FRA12A type (MRFRA12A)
+chrX	31284557	31284605	DMD	GAA		Standard	Intron	>=59	X-linked recessive	Duchenne muscular dystrophy (DMD)
+chr19	45770204	45770264	DMPK	CTG	CAG	Standard	3' UTR	>=50	Autosomal dominant	Myotonic dystrophy 1 (DM1)
+chrX	147912050	147912110	FMR1	CGG	CGG	Standard	5' UTR	55-200 >=201	X-linked dominant	Fragile X tremor/ataxia syndrome (FXTAS)Fragile X Syndrome (FXS)
+chr3	138946020	138946063	FOXL2	GCN	NGC	Imperfect GCN	Coding	>=19	Autosomal dominant	Blepharophimosis, ptosis, and epicanthus inversus syndrome (BPES)
+chr10	93702522	93702547	FRA10AC1		CCG		5' UTR			
+chr9	69037261	69037304	FXN	GAA	A,GAA	Standard	Intron	>=70	Autosomal recessive	Friedreich ataxia (FRDA)
+chr19	14496041	14496074	GIPC1	GGC	CCG	Standard	5' UTR	>=73	Autosomal dominant	Oculopharyngodistal myopathy 2 (OPDM2)
+chr2	190880872	190880920	GLS	GCA	GCA	Standard	5' UTR	>=680	Autosomal recessive	Glutaminase deficiency with impaired intellectual development and progressive ataxia (GD)
+chr7	27199924	27199966	HOXA13_1	GCN	NGC	Imperfect GCN	Coding	>=22	Autosomal dominant	Hand-foot-genital syndrome (HFG)
+chr7	27199825	27199861	HOXA13_2	GCN		Imperfect GCN	Coding	>=18	Autosomal dominant	Hand-foot-genital syndrome (HFG)
+chr7	27199678	27199732	HOXA13_3	GCN		Imperfect GCN	Coding	>=24	Autosomal dominant	Hand-foot-genital syndrome (HFG)
+chr2	176093058	176093104	HOXD13	GCN	GCN	Imperfect GCN	Coding	>=22	Autosomal dominant	Synpolydactyly (SPD)
+chr4	3074876	3074966	HTT	CAG	CAG,CCG	Standard	Coding	>=36	Autosomal dominant	Huntington's disease (HD)
+chr16	87604287	87604329	JPH3	CTG	CTG	Standard	3' UTR	>=41	Autosomal dominant	Huntington disease-like 2 (HDL2)
+chr8	104588972	104589000	LRP12	CGG	CCG	Standard	5' UTR	>=93	Autosomal dominant	Oculopharyngodistal myopathy 1 (OPDM1)
+chr5	10356346	10356412	MARCHF6	TTTCA	TTTTA,TTTCA	Nested	Intron	>=668	Autosomal dominant	Familial adult myoclonic epilepsy 3 (FAME3)
+chr20	2652733	2652775	NOP56	GGCCTG	GGCCTG,CGCCTG	Standard	Intron	>=25	Autosomal dominant	Spinocerebellar ataxia 36 (SCA36)
+chr1	149390802	149390841	NOTCH2NLC	GGC	GGC	Standard	5' UTR	>=90,>=60	Autosomal dominant	Neuronal intranuclear inclusion disease (NIID)Hereditary essential tremor type 6 (ETM6)
+chr1	146228800	146228822	NOTCH2NLA		GGC					
+chr10	79826383	79826404	NUTM2B-AS1	CGG	CGG	Standard	Noncoding transcript	>=700	Autosomal dominant	Oculopharyngeal myopathy with leukoencephalopathy 1 (OPML1)
+chr14	23321472	23321490	PABPN1	GCG	GCG	Standard	Coding	>=7	Autosomal dominant	Oculopharyngeal muscular dystrophy (OPMD)
+chr4	41745972	41746032	PHOX2B	GCN	GCN	Imperfect GCN	Coding	>=24	Autosomal dominant	Central hypoventilation syndrome (CCHS)
+chr5	146878727	146878757	PPP2R2B	CAG	GCT	Standard	5' UTR	>=51	Autosomal dominant	Spinocerebellar ataxia 12 (SCA12)
+chr9	130681606	130681639	PRDM12	GCC		Standard	Coding	>=18	Autosomal recessive	Hereditary sensory and autonomic neuropathy type VIII (HSAN8)
+chr4	159342526	159342617	RAPGEF2	TTTCA	TTTTA,TTTCA,TTTTA	Nested	Intron	>=60	Autosomal dominant	Familial adult myoclonic epilepsy 7 (FAME7)
+chr4	39348424	39348479	RFC1	AAGGGACAGG	AAAAG,AAAGG,AAGGG,AAGAG,AGAGG,AACGG,GGGAC,AAAGGG	Replaced	Intron	>=400	Autosomal recessive	Cerebellar ataxia, neuropathy, and vestibular areflexia syndrome (CANVAS)
+chr6	45422750	45422802	RUNX2	GCN	GCN	Imperfect GCN	Coding	>=27	Autosomal dominant	Cleidocranial dysplasia (CCD)
+chr8	118366815	118366919	SAMD12	TTTCA	TGAAA,TAAAA	Nested	Intron	>=100	Autosomal dominant	Familial adult myoclonic epilepsy 1 (FAME1)
+chrX	140504316	140504362	SOX3	GCN	NGC	Imperfect GCN	Coding	>=26,>=22	X-linked recessive	X-linked mental retardation with isolated growth hormone (XLMR)X-linked panhypopituitarism (PHPX)
+chr2	96197066	96197122	STARD7	ATTTC	TGAAA,TAAAA	Nested	Intron	>=274	Autosomal dominant	Familial adult myoclonic epilepsy 2 (FAME2)
+chr6	170561906	170562017	TBP	CAG	GCA	Standard	Coding	>=43	Autosomal dominant	Spinocerebellar ataxia 17 (SCA17)
+chr22	19766762	19766807	TBX1	GCN		Imperfect GCN	Coding	>=25	Autosomal dominant	Tetralogy of Fallot (TOF)
+chr18	55586155	55586227	TCF4	CTG	CAG	Standard	Intron	>=50	Autosomal dominant	Fuchs endothelial corneal dystrophy-3 (FECD3)
+chrX	149631763	149631782	TMEM185A		GCC		Intron			
+chr16	24613439	24613530	TNRC6A	TTTCA	TTTTA,TTTCA,TTTTA	Nested	Intron	>=1100	Autosomal dominant	Familial adult myoclonic epilepsy 6 (FAME6)
+chr16	17470907	17470923	XYLT1	GGC	GCC	Standard	5' UTR	>=110	Autosomal recessive	Desbuquois dysplasia-2 (DBQD2)
+chr3	183712187	183712223	YEATS2	TTTCA	TTTTA,TTTCA	Nested	Intron	>=1000	Autosomal dominant	Familial adult myoclonic epilepsy 4 (FAME4)
+chr13	99985448	99985494	ZIC2	GCN	GCN	Imperfect GCN	Coding	>=25	Autosomal dominant	Holoprosencephaly 5 (HPE5)
+chrX	137566826	137566856	ZIC3	GCC		Standard	Coding	>=12	X-linked recessive	X-linked VACTERL syndrome (VACTERLX)
+chr7	55887601	55887640	ZNF713		CGG					
+chr20	4699397	4699493	PRNP		GGTGGTGGCTGGGGGCAGCCTCAT		Coding	>=5	Autosomal dominant	Creutzfeldt-Jakob disease
+chr1	1435798	1435818	VWA1		GGCGCGGAGC		Coding	>=3	Autosomal recessive	Hereditary motor neuropathy
+chr17	80147059	80147139	EIF4A3		CCTCGCTGTGCCGCTGCCGA		5' UTR	>=14	Autosomal recessive	Richieri-Costa-Pereira syndrome
+chr15	22786677	22786701	NIPA1		GCG		Coding	>=11	Autosomal dominant	Amyotrophic lateral sclerosis
