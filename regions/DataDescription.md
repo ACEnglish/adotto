@@ -1,5 +1,16 @@
 # Versions:
 
+## v1.1 (in progress)
+
+Updated the pathogenic column. 54 pathogenic regions are unchanged, 2 have been changed, and 6 added.
+```
+changed: (is_now -> was)
+	NOTCH2NLA -> NOTCH2NLC
+	NOTCH2NLC -> NOTCH2NL
+added:
+	EIF4A3, PRNP, TBX1, PRDM12, DMD, ZIC3
+```
+
 ## v1.0
 (Click the badge to go to the download page)  
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.7521434.svg)](https://doi.org/10.5281/zenodo.7521434)

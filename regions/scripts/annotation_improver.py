@@ -17,7 +17,11 @@ new annotations are added to each region
 - intersersed - name of interspersed repeat found within region by RepeatMasker
 - patho - name of gene affected by a pathogenic tandem repeat within region
 - codis - name of codis site contained within region
-
+(later adds
+    gene_flag
+    biotype
+)
+then there's annotations json
 the overlap flags are:
 - iso [1] - if an annotation was isolated and by itself. True or False. May be indicative of a 'cleaner' repeat
 - parent [2] - if annotation is part of a nested annotation filtering and is a parent repeat
