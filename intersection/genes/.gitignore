@@ -1,0 +1,15 @@
+GRCh38_1kg_mainchrs.fa.fai
+TRs_to_genes.txt.gz
+gene.bed
+grch38.exclude_regions.bed
+grch38.gene.bed.gz
+grch38.gene.raw.txt.gz
+grch38.merge_gene.bed.gz
+grch38.proteinGenes.bed
+grch38.proteinGenes_merged.bed
+grch38.proteinGenes_merged_promoters.bed
+grch38.simplerepeat.bed
+grch38.simplerepeat_merge.bed
+grch38.simplerepeat_merge_max50.bed
+tr_sample.bed
+trs.bed

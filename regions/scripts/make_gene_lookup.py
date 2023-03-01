@@ -1,4 +1,6 @@
-
+"""
+Creates the lookup for adding the gene information
+"""
 import sys
 import json
 from collections import Counter, defaultdict
