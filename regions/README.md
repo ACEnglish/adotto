@@ -33,16 +33,6 @@ is almost the same as the component parts' `mk_merge.sh`. However, a ref.genome 
 The slop bed is a remerge of the `merged.bed.gz` after inflating all the regions by 50bp (25bp on each end).
 
 
-Reference Gaps
-==============
-Remove regions within 5kbp of reference gaps obtained from the 'Mapping and Sequencing>Gap' track from 
-[UCSC](https://genome.ucsc.edu/cgi-bin/hgTables)
-
-```bash
-bash ../scripts/remove_gaps.sh HumanGRCh38.mapping.gap.bed.gz grch38.genome merged.slop25.bed.gz
-```
-This removes 1769 regions and puts the remaining ones in `data/tr_regions.bed.gz`
-
 Generating stats
 ================
 All the intermediate stats files generated can be concatenated into a single tab-delimited table with
@@ -180,7 +170,4 @@ python scripts/annotation_improver.py \
 	> adotto_TRregions_v1.0.bed
 ```
 
-Variants
-========
-After creating variants, go to `intersection/` to use the variants to perform more and analysis on the
-tr_regions/annotations
+Then we use `scripts/make_gene_lookup.py` and `scripts/append_gene.py` to add the gene columns

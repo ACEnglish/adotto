@@ -1,0 +1,29 @@
+QC checks on the assembly intersection
+
+Genome covered by NIST
+- 48,624 regions spanning 2,778,450,120bp (~86.8% of grch38)
+
+Genome covered by Adotto
+- 328 regions spanning 2,668,392,630bp (~83.4% of grch38)
+
+Genome covered by Both:
+- 45,870 regions spanning 2,615,712,814bp (~81.7% of grch38)
+
+TRregions v1.1 total: 
+- 1,784,804 regions spanning 237,865,075bp (~7.4% of grch38)
+
+TRregions v1.1 in coverage
+- NIST: 1,707,318 regions spanning 212,853,127bp (~6.7%)
+- Adotto: 1,701,194 regions spanning 217,607,408 (~6.8%)
+- Both: 1,645,456 regions spanning 203,578,939 (~6.4%)
+
+Patho and codis - 63 and 52 regions, respectively
+- NIST: 50 patho, 44 codis
+- Adotto: 52 patho, 24 codis
+- Both: 42 patho, 23 codis
+
+Okay, so now lets do the seq.som on each of the genomes.
+See if there's any systematic differences of which regions make it in/out.
+I don't expect any sequence bias to be visible a this resolution, so anything that does pop out
+is really problematic
+
