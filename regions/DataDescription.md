@@ -1,8 +1,10 @@
 # Versions:
 
-## v1.1 (in progress)
+## v1.1
+(Click the badge to go to the download page)  
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.7689784.svg)](https://doi.org/10.5281/zenodo.7689784)
 
-Updated the pathogenic column. 54 pathogenic regions are unchanged, 2 have been changed, and 6 added.
+- Updated pathogenic repeats. 54 pathogenic regions are unchanged, 2 have been changed, and 6 added.
 ```
 changed: (is_now -> was)
 	NOTCH2NLA -> NOTCH2NLC
@@ -10,6 +12,8 @@ changed: (is_now -> was)
 added:
 	EIF4A3, PRNP, TBX1, PRDM12, DMD, ZIC3
 ```
+- Renamed annotations' "motif" key back to "repeat" for `truvari anno trf` compatibility.
+- hom_span column normalized as hom_pct - percent of bases in the regions annotated as homopolymers
 
 ## v1.0
 (Click the badge to go to the download page)  
