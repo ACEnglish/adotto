@@ -23,6 +23,7 @@ cat temp/adotto_hq_cov.bed temp/dipcall_hq_cov.bed | bedtools sort \
     | awk '$4 == 2' | cut -f1-3 > HPRC_HG002_dipcalladotto_HQCov_spans.bed
 
 
+bedtools intersect -u -f 1 -a $trr -b HPRC_HG002_dipcalladotto_HQCov_spans.bed > adotto_TRregions_v1.1_HPRC_HG002_Covered.bed
 bedtools intersect -u -f 1 -a $trr -b HPRC_HG002_dipcalladotto_HQCov_spans.bed | cut -f1-3 > temp/both_subset.bed
 bedtools intersect -u -f 1 -a $trr -b temp/adotto_hq_cov.bed | cut -f1-3 > temp/adotto_subset.bed
 bedtools intersect -u -f 1 -a $trr -b temp/dipcall_hq_cov.bed | cut -f1-3 > temp/dipcall_subset.bed

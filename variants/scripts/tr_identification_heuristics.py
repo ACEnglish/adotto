@@ -22,26 +22,16 @@ def filter_TR_entry(entry):
 
 if __name__ == '__main__':
     v = pysam.VariantFile(sys.argv[1])
-    bed = sys.argv[2]
+    #bed = sys.argv[2]
     header = v.header.copy()
     header.add_line('##FILTER=<ID=NONTR,Description="NonTR variant">')
     o = pysam.VariantFile('/dev/stdout', 'w', header=header)
-    fh = truvari.opt_gz_open(bed)
-    for line in fh:
-        line = line.strip().split('\t')
-        chrom = line[0]
-        start = int(line[1])
-        end = int(line[2])
-        for entry in v.fetch(chrom, start, end):
-            # Remove those not entirely within
-            st, ed = truvari.entry_boundaries(entry)
-            if not (start <= st and ed <= end):
-                continue
-            if truvari.entry_size(entry) < 5:
-                o.write(entry)
-                continue
-            entry.translate(header)
-            if filter_TR_entry(entry):
-                entry.filter.clear()
-                entry.filter.add('NONTR')
+    for entry in v:
+        if truvari.entry_size(entry) < 5:
             o.write(entry)
+            continue
+        entry.translate(header)
+        if filter_TR_entry(entry):
+            entry.filter.clear()
+            entry.filter.add('NONTR')
+        o.write(entry)
