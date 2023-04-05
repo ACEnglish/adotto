@@ -14,7 +14,6 @@ chr20	4802868	4802961	badcompare?	chr20	4802842	4802952	TP_TP_TP	84
 chr20	48610794	48610920	badcompare?	chr20	48610788	48610937	TP_TP_TP	126
 	I need to see the variants to make sure its a lack of phasing / Truvari problem
 
-
 Zaiei
 =====
 All except last one are now Tier2. The last one, the other two assemblies and the different alignment agree the variant is there
@@ -27,8 +26,6 @@ chr20	19322344	19322428	-5,-9,-6	CCTT	FTP_filt	chr20	19322314	19322454	FN,FP_FN,
 chr20	33544931	33545024	-5,-15,-5	AGAAT	F_filt	chr20	33544901	33545050	TP_FP_TP	93
 chr20	40765189	40765246	10,15,10	TTTTG	.	.	-1	-1	.	0
 
-
-
 Dolz
 ====
 Two of the 5 reported sites are now Tier2
@@ -40,3 +37,15 @@ The other three are tier1
 "A slightly less confident call" - chr20	40460114	40460364	chr20	40460114	40460365	TP_TP_TP	250
 "Consensus sequence of both alleles are incorrect" - chr20	6327068	6327756	chr20	6327068	6327757	TP_TP_TP	688
 "Consensus sequence of both alleles are incorrect" - chr20	5011162	5011342	chr20	5011162	5011343	TP_FN_TP	180
+
+Yuan
+====
+Two of the 12 are now Tier2
+
+chr20	3093127	3093128	chr20	3092994	3093130	TP_TP_FN	1
+chr20	41389225	41389226	chr20	41389143	41389250	TP_TP_FN	1
+
+They are both tier2 because the dipcall alignment doesn't have a variant that matches up to it
+
+9 are TP across the board, so I'm assuming that means the ilmn is just missing them
+And one is true negative across the board, so I'm assuming ilmn has a FP
