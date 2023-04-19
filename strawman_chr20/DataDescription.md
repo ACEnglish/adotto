@@ -1,7 +1,9 @@
 GIAB TR Benchmark Strawman
 ==========================
 
-We collected TR regions for chromosome 20 from adotto_TRregions v1. (see README.md for details)
+Technical details for how to create the strawman can be found in  README.md.
+
+We collected TR regions for chromosome 20 from adotto_TRregions v1.1 
 We subset these regions to those confidently covered by two alignments of the HPRC assembly.
 See [adotto github](https://github.com/ACEnglish/adotto/blob/main/strawman_chr20/scripts/make_hq_bed.sh) for commands used
 to create the confidently covered bed files.
@@ -12,7 +14,13 @@ TRFperiod > 1, and variant sequence entropy being over 0.25.
 See [this script](https://github.com/ACEnglish/adotto/blob/main/strawman_chr20/scripts/tr_identification_heuristics.py) for
 details.
 
-The confidently covered regions were then split into three sets based on their intersection to HG002 variants:
+The regions can be found in `adotto_TRregions_v1.1_HPRC_HG002_Covered_chr20_annotations.bed.gz`. The full TR catalog
+(extra columns) can be found in `adotto_TRregions_v1.1_HPRC_HG002_Covered_chr20_fullTRcatalog.bed.gz`
+
+The variants can be found in `chr20.HG002.strawman.vcf.gz`.
+
+This resulted in N regions on chr20 with N variants. The confidently covered regions can then be split into three sets
+based on their intersection to HG002 variants:
 * Green: A single >=5bp INDEL is present in the pVCF over the region
 * Blue: More than one >=5bp INDEL is present in the pVCF over the region
 * Controls: No >=5bp INDEL is present in the pVCF over the region
