@@ -52,40 +52,9 @@ covered TRregions into Tier1 and Tier2 as well as adding some benchmarking annot
 
 1. Subset HG002 and its assembly replicates from the pVCF. `bash hg002_subsets.sh`
 2. Benchmark against the replicates `bash run_repl_bench.sh`
-3. Run the makeTiers.sh pipeline (need to paste that together so its a single step. Actually, I need it to be 2 steps
-   because there's the manual setting of replicate_states to the Tiers)
-4. Tier1.bed, Tier2.bed are output into this directory (give better names)
-5. Subset the pVCF to only HG002 (and maybe only the Tier1/Tier2 variants?)
-6. Finished
-
-Note: step 5 might be a place where I do the tr_identification_heuristics.py?
-Though I'm not totally sure about that.
-
-#.. I don't remember...
-# I 
-`adotto/strawman_chr20/clean_bench_regions/makeTiers.sh`
-`adotto/strawman_chr20/clean_bench_regions/make_tiers.py`
-`adotto/strawman_chr20/clean_bench_regions/split_tier1.py`
+3. Create the tiered/annotated bed file with `bash makeTiers.sh`
 
 VCF creation
 ============
 
-Subset to just HPRC HG002 and (optinally?) run `truvari anno trf`
-
-`adotto/strawman_chr20/scripts/tr_identification_heuristics.py`
-
-Intersect the assembly/alignment replicates and separate into tiers
-
-Filter Tier1 regions without useful controls
-
-Subset the pVCF to HG002 only.
-
-Annotate with `truvari anno trf` over the well covered regions and run that through the script that sets the FILTER.
-
-
-Should end up with:
-
-GIABTR_HG002_Tier1.bed
-GIABTR_HG002_Tier2.bed
-GIABTR_HG002.vcf.gz
-README.md
+Step1 in tiering subset the HG002 HPRC assembly. Just use that for the VCF
