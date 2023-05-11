@@ -13,17 +13,17 @@ BiocManager::install("regioneR")
 library(regioneR)
 
 genome <- toGRanges("/data/GRCh38_1kg_mainchrs.fa.fai")
-my.regions <- toGRanges("/data/grch38.simplerepeat_merge_max50.bed", genome=genome)
+my.regions <- toGRanges("/data/adotto_TRcatalog_v1.1.bed", genome=genome)
 my.mask <- toGRanges("/data/grch38.exclude_regions.bed", genome=genome)
 
 all.gene <- toGRanges("/data/grch38.proteinGenes_merged.bed", genome=genome)
 
-ptO_genes <- overlapPermTest(A=my.regions, B=all.gene, ntimes=100, genome=genome, per.chromosome=TRUE,
+ptO_genes <- overlapPermTest(A=my.regions, B=all.gene, ntimes=1000, genome=genome, per.chromosome=TRUE,
                         mask=my.mask, verbose=TRUE, force.parallel=TRUE)
 plot(ptO_genes)
 
-all.gene <- toGRanges("/data/grch38.proteinGenes_merged_promoters.bed", genome=genome)
-ptO_promoter <- overlapPermTest(A=my.regions, B=all.gene, ntimes=100, genome=genome, per.chromosome=TRUE,
+all.gene <- toGRanges("/data/grch38.EPDpromoters.bed", genome=genome)
+ptO_promoter <- overlapPermTest(A=my.regions, B=all.gene, ntimes=1000, genome=genome, per.chromosome=TRUE,
                                 mask=my.mask, verbose=TRUE, force.parallel=TRUE)
 plot(ptO_promoter)
 
