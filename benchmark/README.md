@@ -57,4 +57,8 @@ covered TRregions into Tier1 and Tier2 as well as adding some benchmarking annot
 VCF creation
 ============
 
-Step1 in tiering subset the HG002 HPRC assembly. Just use that for the VCF
+Step1 in tiering subset the HG002 HPRC assembly. Just use that for the VCF.
+
+Extra Bed Annos
+===============
+- Add allele deltas using `scripts/allele_delta.py`
