@@ -9,13 +9,13 @@ REPDIR=$DIR/../replicate_bench/
 REF=/users/u233287/scratch/insertion_ref/msru/data/reference/grch38/GRCh38_1kg_mainchrs.fa
 PVCF=$INDIR/adotto_variants.grch38.sqoff.vcf.gz
 
-paste $REPDIR/bench_ei/refine.regions.txt \
-      $REPDIR/bench_li/refine.regions.txt \
-      $REPDIR/bench_al/refine.regions.txt \
-      | cut -f1,2,3,13,26,39 \
-      | grep -v start > $TMPDIR/all_refine.bed
+# replaced by a manual pandas join so we can deal with new 'nulls' for some states
+#python $DIR/consolidate_refine_regions.py $REPDIR/bench_ei/refine.regions.txt \
+                                          #$REPDIR/bench_li/refine.regions.txt \
+                                          #$REPDIR/bench_al/refine.regions.txt \
+                                          #> $TMPDIR/all_refine.bed
 # If you need to remake the curated states
-#cut -f13,26,39 all_refine.bed | sort | uniq -c | sort -nr > states.txt
+#cut -f4,5,6 all_refine.bed | sort | uniq -c | sort -nr > states.txt
 
 python $DIR/make_tiers.py $TMPDIR/all_refine.bed \
                           $INDIR/replicate_curated_states.txt \
