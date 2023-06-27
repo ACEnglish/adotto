@@ -1,6 +1,6 @@
 
-t=2
-reR=/Users/english/code/regione_rust/target/release/regione_rust
+t=4
+reR=/Users/english/code/regioners/target/release/regioners
 for random in novl circle
 do
     time $reR -g data/grch38.genome.txt \
