@@ -1,9 +1,10 @@
+import os
 import glob
 
 files = glob.glob("logs/*")
 rows = []
 for f in files:
-    if "CHM13Y" in f: continue
+    if "CHM13Y" in f or os.path.basename(f).startswith("cov."): continue
 
     if f.startswith("logs/hprc"):
         d = f.split('.')[1:-2]
