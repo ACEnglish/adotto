@@ -106,8 +106,8 @@ echo "#   out: $out"
 
 echo -e "set\tcount\tlength"
 MTMP=$TMPDIR/$(basename ${out})
-echo -e "mat\t$(get_stats $mat)"
-echo -e "pat\t$(get_stats $pat)"
+echo -e "mat\t$(get_stats <(awk '$4 != 0' $mat))"
+echo -e "pat\t$(get_stats <(awk '$4 != 0' $pat))"
 
 # Get 1x covered regions per-haplotype
 awk '$4 == 1' $mat | cut -f1-3 > ${MTMP}_mat_cov.bed
@@ -119,7 +119,7 @@ echo -e "pat_1x\t$(get_stats ${MTMP}_pat_cov.bed)"
 cat ${MTMP}_mat_cov.bed ${MTMP}_pat_cov.bed \
   | bedtools sort \
   | bedtools genomecov -i - -g $genome -bga > ${MTMP}_diploid_cov.bed
-echo -e "diploid\t$(get_stats ${MTMP}_diploid_cov.bed)"
+echo -e "diploid\t$(get_stats <(awk '$4 != 0' ${MTMP}_diploid_cov.bed))"
 
 # Clean out alt contigs with '_
 # Non-chrX/chrY requires 1x per haplotype
