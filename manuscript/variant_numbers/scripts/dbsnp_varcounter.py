@@ -17,7 +17,10 @@ total = 0
 print('chrom\tstart\tend\tsnp\tfive\tfifty\tsv\ttotal_len')
 for line in sys.stdin:
     data = line.strip().split('\t')
-    max_alt_len = max([len(_) for _ in data[dALTs].split(',')][:-1])
+    alt_len = [len(_) for _ in data[dALTs].split(',')][:-1]
+    if not alt_len:
+        continue
+    max_alt_len = max(alt_len)
     sz = abs(max_alt_len - len(line[dREF]))
     # So, use ref/alts to get the variant size
     # and do it for notes to get ... rare/common (however many types there are)
