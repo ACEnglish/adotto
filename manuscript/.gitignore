@@ -1,0 +1,13 @@
+f1_som/anno_tracks/
+sf_trgeneprom/data/
+sf_trgeneprom/hold_data/
+sf_trgeneprom/tmp.sh
+variant_numbers/TR_with_any_variant.bed.gz
+variant_numbers/TR_without_any_variant.bed
+variant_numbers/TR_without_any_variant.bed.gz
+variant_numbers/TRcatalog_chr1_dbSNP_commoncounts.txt.gz
+variant_numbers/TRcatalog_chr1_dbSNPcounts.txt.gz
+variant_numbers/TRcatalog_pVCFcounts.txt.gz
+variant_numbers/adotto.pvcf.bed
+variant_numbers/delme.ipynb
+variant_numbers/persamp_varnumbers/

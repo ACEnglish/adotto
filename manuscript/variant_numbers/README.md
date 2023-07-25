@@ -44,3 +44,10 @@ I think the whole genome is covered...
 
 cat all_hc_beds.txt | xargs bedtools multiinter -g ~/scratch/code/regione_rust/test_beds/grch38.genome.txt -names $(cat
 all_names.txt) -i > giant_coverage_allsamples.bed
+
+
+perm tests
+
+
+~/code/regioners/target/release/regioners -g ~/code/regioners/test_beds/grch38.genome.txt --mask ../sf_trgeneprom/data/grch38.exclude_regions.bed -A TR_without_any_variant.bed -B ../sf_trgeneprom/data/grch38.protein_coding_transcript.bed -n 1000 --per-chrom --random circle -o TR_without_any_variant.regioner.json --threads 4
+
