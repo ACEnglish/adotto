@@ -12,7 +12,7 @@ The current beta-release (v6.26) of the benchmark can be found
 
 ## 📜 README
 Included in the above tar-ball is a `README.md` which can be seen
-[here](https://github.com/ACEnglish/adotto/tree/main/benchmark/benchmark/GIABTR_benchmark.6.26/README.md).
+[here](https://github.com/ACEnglish/adotto/tree/main/benchmark/GIABTR_benchmark.6.26/README.md).
 This README has details on the files contained in the benchmark as well as instructions on how to compare your
 caller using Truvari. Note that Truvari is currently under active development as a part of the GIAB TR project 
 so a manual installation of the latest development branch is recommended. The README explains this in detail.
