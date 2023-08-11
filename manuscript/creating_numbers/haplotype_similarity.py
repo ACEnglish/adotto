@@ -46,13 +46,16 @@ haplotypes = consolidate_haplotypes_with_reference(samp_haps, ref_haps_fn)
 for seq_bytes in haplotypes:
     fasta = {k:v.decode() for k,v in fasta_reader(seq_bytes.decode(), name_entries=False)}
     ref_key = [_ for _ in fasta.keys() if _.startswith("ref_")][0]
+    ref_seq = fasta[ref_key]
     h1_seq = fasta[[_ for _ in fasta.keys() if _.startswith("HG002_1")][0]]
     h2_seq = fasta[[_ for _ in fasta.keys() if _.startswith("HG002_2")][0]]
-    h1_sim = 0
-    h2_sim = 0
+    h1_sim = -1
+    h2_sim = -1
     other_haps = [_ for _ in fasta.keys() if not (_.startswith("ref_") or _.startswith("HG002"))]
     for key in other_haps:
-        h1_sim = max(h1_sim, truvari.seqsim(h1_seq, fasta[key]))
-        h2_sim = max(h1_sim, truvari.seqsim(h2_seq, fasta[key]))
+        if ref_seq != h1_seq:
+            h1_sim = max(h1_sim, truvari.seqsim(h1_seq, fasta[key]))
+        if ref_seq != h2_seq:
+            h2_sim = max(h1_sim, truvari.seqsim(h2_seq, fasta[key]))
     reg = ref_key.split('_')[1].replace(':', '\t').replace('-', '\t')
     print(reg, h1_sim, h2_sim, sep='\t')
