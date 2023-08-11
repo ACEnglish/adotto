@@ -53,6 +53,8 @@ for seq_bytes in haplotypes:
     h2_sim = -1
     other_haps = [_ for _ in fasta.keys() if not (_.startswith("ref_") or _.startswith("HG002"))]
     for key in other_haps:
+        if fasta[key] == ref_seq:
+            continue
         if ref_seq != h1_seq:
             h1_sim = max(h1_sim, truvari.seqsim(h1_seq, fasta[key]))
         if ref_seq != h2_seq:
