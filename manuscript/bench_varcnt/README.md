@@ -13,8 +13,13 @@ types.
 ```
 
 2) Generate the RTG stats (will need a script to subset to >=5bp in order to make the table comparison
-3) Collect the alignment replicate bench/refine variant summaries
-4) Make a script that will plot precision/recall by Type/Size for RTG, Bench,... Refine...
-Refine I can use the laytr thing with phab
+/hgsc_software/rtg-tools/rtg-tools-3.12.1/rtg vcfeval -T 2 --evaluation-regions --baseline --calls --template sdf
 
+3) Collect the alignment replicate bench/refine variant summaries
+
+rtgdfmaker.py
+and some truvari vcf2df (and laytr tru2ga
+
+4) Make a notebook that will plot precision/recall by Type/Size for RTG, Bench,... Refine...
+Refine I can use the laytr thing with phab
 
