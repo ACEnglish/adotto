@@ -28,3 +28,14 @@ Note this is largely a subset of gnomAD
 
 
 Consolidated through manual curation and placed in `Patho.tsv`
+
+New Pathos that aren't inside of v1.1
+FGF14: chr13:102161577-102161726
+
+https://www.nejm.org/doi/full/10.1056/NEJMoa2207406
+
+
+
+THAP11: chr16:67842864-67842950
+
+https://pubmed.ncbi.nlm.nih.gov/37148549/
