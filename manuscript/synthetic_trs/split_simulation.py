@@ -1,5 +1,16 @@
 """
-Similar to seq similarity, we're going to make some random TRs.
+Make two representations of
+an alternate sequence will  be +1 to +15 copies of a pure repeat.
+
+Then, we'll randomly add a SNP in the first copy of the repeat
+
+The first representation will be a single insertion
+The second representation will be a SNP and then multiple insertions
+
+See... I don't think that works... The way the experiment works right now
+not every haplotype is identical because if we insert one of the copies in 
+after 
+
 
 But, for the rep2, we're going to split them up.
 For example, +2 copies, we put them in two different positions.
@@ -18,6 +29,7 @@ realignment.
 """
 import sys
 import json
+import time
 import random
 import pysam
 import truvari
@@ -182,9 +194,12 @@ def generate_random_spots(reference, catalog, num_iter):
     - no interspersed
     - high purity 95+
     """
-    view = catalog[(catalog['interspersed'] == '.') & (catalog['mu_purity'] >= 95)]
-    for i in range(num_iter):
-        annos = json.loads(catalog.sample(1).iloc[0]['annos'])
+    time_only = (catalog['end'] - catalog['start']) >= 500
+    view = catalog[(catalog['interspersed'] == '.') 
+                   & (catalog['mu_purity'] >= 95)
+                   & time_only]
+    for _, row in catalog.sample(n=num_iter).iterrows():
+        annos = json.loads(row['annos'])
         # get the longest spanning motif in case of multiple
         max_span = 0
         best = None
@@ -218,7 +233,37 @@ def main():
             # Instead of handling every edge case, we'll just skip them.
             pass
 
+def times():
+    ref_fn = "/Users/english/code/references/grch38/GRCh38_1kg_mainchrs.fa"
+    cat_fn = "/Users/english/code/adotto/regions/adotto_TRregions_v1.1.bed"
+    N = 5 #Number of loci we'll be simulating
+    ref = pysam.FastaFile(ref_fn)
+    cat = pd.read_csv(cat_fn, sep='\t')
+    m_times = []
+    w_times = []
+    for reference, motif, num_copies, divergence, num_splits in generate_random_spots(ref, cat, N):
+        try:
+            rep1, rep2, num_changes = create_alternate(reference, motif, num_copies, divergence, num_splits)
+            s = time.time()
+            w_v1, w_v2, w_num_pos = harmonize_wfa(reference, rep1, rep2)
+            w_times.append(time.time() - s)
+            m_v1, m_v2, m_num_pos = harmonize_mafft(reference, rep1, rep2)
+            s = time.time()
+            m_times.append(time.time() - s)
+        except Exception:
+            # Sometimes the parameters aren't adequate for doing a split. 
+            # Instead of handling every edge case, we'll just skip them.
+            pass
+    m_times = pd.Series(m_times).to_frame()
+    w_times = pd.Series(w_times).to_frame()
+    print('mafft')
+    print(m_times.describe())
+    print('wfa')
+    print(w_times.describe())
+    print(w_times.describe() / m_times.describe())
+
 
 if __name__ == '__main__':
     #test()
-    main()
+    #main()
+    times()

@@ -43,7 +43,7 @@ def create_alternate(sequence, motif, copy_number, divergence=0):
     return pos, rep1, rep1_alt, rep2, rep2_alt, num_changes
 
 # Do it N times
-print("motif_len motif copy_number copy_gain r1_hap r2_hap alt_pos r1_alt r2_alt div ref_context_sim unroll_sim num_changes div_norm")
+print("motif_len motif copy_number copy_gain r1_hap r2_hap alt_pos r1_alt r2_alt div ref_context_sim unroll_sim nonroll_sim num_changes div_norm")
 already_made = {} # for removing duplicates
 for i in range(150):
     for motif_len in range(2, 20):
@@ -65,7 +65,8 @@ for i in range(150):
                     div_norm = 1 - (num_changes / (len(rep2_alt) * 2))
                     ref_context_sim = truvari.seqsim(rep1, rep2)
                     unroll_sim = truvari.unroll_compare(rep1_alt, rep2_alt, pos % len(rep2_alt))
+                    nonroll_sim = truvari.seqsim(rep1_alt, rep2_alt)
                     # 3 TGT 2 1 TGTT TGTT 1 TGT GTT 5 1.0 0.6666666666666666 0 1.0
                     print(motif_len, motif, ref_copy_number, copy_number, 
                           rep1, rep2, pos, rep1_alt, rep2_alt, div,
-                          ref_context_sim, unroll_sim, num_changes, div_norm)
+                          ref_context_sim, unroll_sim, nonroll_sim, num_changes, div_norm)
