@@ -27,11 +27,11 @@ p.set(title="TR catalog intersection with promoters")
 p = plotter(f"results/transcript_perchrom{random}1000.json", 1.25e-5, ax[0, 1])
 p.set(title="TR catalog intersection with transcripts")
 
-p = plotter(f"results/nonintron_perchrom{random}1000.json", 0.000075, ax[1, 0])
-p.set(title="TR catalog intersection with non-introns")
+p = plotter(f"results/CDS_perchrom{random}1000.json", 0.000075, ax[1, 0])
+p.set(title="TR catalog intersection with CDS")
 
-p = plotter(f"results/intron_perchrom{random}1000.json", 1.5e-5, ax[1, 1])
-p.set(title="TR catalog intersection with introns")
+p = plotter(f"results/UTR_perchrom{random}1000.json", 1.5e-5, ax[1, 1])
+p.set(title="TR catalog intersection with UTR")
 
 plt.tight_layout()
 plt.savefig(f"TRGeneProm_{random}.pdf")
