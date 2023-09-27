@@ -39,3 +39,6 @@ https://www.nejm.org/doi/full/10.1056/NEJMoa2207406
 THAP11: chr16:67842864-67842950
 
 https://pubmed.ncbi.nlm.nih.gov/37148549/
+
+New VNTR phenotypic that are (mostly) inside of v1.1 from: https://www.ncbi.nlm.nih.gov/pmc/articles/PMC8549062/
+
