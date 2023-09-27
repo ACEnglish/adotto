@@ -1,4 +1,42 @@
-# Versions:
+# Versions
+
+## v1.2
+
+(Click the badge to go to the download page)  
+((I'll put it up soon))
+
+- Updated with two additional pathogenic repeats
+ - FGF14 from https://www.nejm.org/doi/full/10.1056/NEJMoa2207406
+ - THAP11 from https://pubmed.ncbi.nlm.nih.gov/37148549/
+- Intersected with 118 phenotypic VNTRs
+ - https://www.ncbi.nlm.nih.gov/pmc/articles/PMC8549062/
+
+The phenotypic VNTRs had no overlap to pathogenic repeats. Therefore, we added the phenotypic VNTR's gene name to the
+pathogenic column of the catalog. This makes the v1.2 'patho' column more of a 'patho/pheno'
+
+# File Structure:
+| Column        | Definition                                                                                     |
+|---------------|------------------------------------------------------------------------------------------------|
+| chr           | Chromosome of the region                                                                       |
+| start         | Start position of the region                                                                   |
+| end           | End position of the region                                                                     |
+| ovl_flag      | overlap categories of annotations inside the region                                            |
+| up_buff       | number of bases upstream of the first annotation's start that are non-TR sequence              |
+| dn_buff       | number of bases downstream of the last annotation's end that are non-TR sequence               |
+| hom_span      | number of bases of the region found to be homopolymer repeats                                  |
+| n_filtered    | number of annotations removed from the region                                                  |
+| n_annos       | number of annotations remaining in the region                                                  |
+| n_subregions  | number of subregions in the region                                                             |
+| mu_purity     | average purity of annotations in region                                                        |
+| pct_annotated | percent of the region's range (minus buffer) annotated                                         |
+| interspersed  | name of interspersed repeat class found within region by RepeatMasker v4.1.4                   |
+| patho/pheno   | name of gene affected by a pathogenic or phenotypic tandem repeat in region                    |
+| codis         | name of CODIS site contained in region                                                         |
+| gene_flag     | gene features intersecting region (Enseml v105)                                                |
+| biotype       | comma separated gene biotypes intersecting region (Enseml v105)                                |
+| annos         | JSON of TRF annotations in the region (list of dicts with keys: motif, entropy, ovl_flag, etc) |
+
+# Old Versions
 
 ## v1.1
 (Click the badge to go to the download page)  
