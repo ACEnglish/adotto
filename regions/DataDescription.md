@@ -3,7 +3,7 @@
 ## v1.2
 
 (Click the badge to go to the download page)  
-((I'll put it up soon))
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.8387564.svg)](https://doi.org/10.5281/zenodo.8387564)
 
 - Updated with two additional pathogenic repeats
  - FGF14 from https://www.nejm.org/doi/full/10.1056/NEJMoa2207406
