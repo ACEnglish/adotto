@@ -3,12 +3,14 @@ Project Adotto
 
 This repo holds the analysis scripts/notes/summaries for the Genome in a Bottle Tandem Repeat Benchmark.
 
+📝Preprint available on [biorxiv](https://www.biorxiv.org/content/10.1101/2023.10.29.564632v1)
+
 The Benchmark
 =============
 
 ## 💾 Download
-The current beta-release (v6.26) of the benchmark can be found
-[here](https://drive.google.com/file/u/1/d/1fbOIUr7c4wdJ_Ede7hJlhAq-keX-yyuO/view?usp=sharing).
+The current release (v1.0) of the benchmark can be found
+[here](https://ftp-trace.ncbi.nlm.nih.gov/ReferenceSamples/giab/release/AshkenazimTrio/HG002_NA24385_son/TandemRepeats_v1.0/).
 
 ## 📜 README
 Included in the above tar-ball is a `README.md` which can be seen
