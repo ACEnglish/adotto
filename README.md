@@ -3,7 +3,9 @@ Project Adotto
 
 This repo holds the analysis scripts/notes/summaries for the Genome in a Bottle Tandem Repeat Benchmark.
 
-📝Preprint available on [biorxiv](https://www.biorxiv.org/content/10.1101/2023.10.29.564632v1)
+📝[Citation](https://rdcu.be/dFQNN)
+
+English, A.C., Dolzhenko, E., Ziaei Jam, H. et al. Analysis and benchmarking of small and large genomic variants across tandem repeats. Nat Biotechnol (2024). https://doi.org/10.1038/s41587-024-02225-z
 
 The Benchmark
 =============
