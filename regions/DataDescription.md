@@ -1,5 +1,11 @@
 # Versions
 
+## v1.2.1
+(Click the badge to go to the download page)  
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.13987414.svg)](https://doi.org/10.5281/zenodo.13987414)
+
+Fixing the anno column's json format by replacing double double-quotes ("") with single double-quotes (").
+
 ## v1.2
 
 (Click the badge to go to the download page)  
